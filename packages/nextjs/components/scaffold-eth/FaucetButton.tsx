@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createMemoryClient } from "tevm";
 import { createWalletClient, http, parseEther } from "viem";
 import { hardhat } from "viem/chains";
 import { useAccount } from "wagmi";
@@ -16,6 +17,8 @@ const localWalletClient = createWalletClient({
   chain: hardhat,
   transport: http(),
 });
+
+const memoryClient = createMemoryClient();
 
 /**
  * FaucetButton button which lets you grab eth.
@@ -33,11 +36,20 @@ export const FaucetButton = () => {
     if (!address) return;
     try {
       setLoading(true);
-      await faucetTxn({
-        account: FAUCET_ADDRESS,
+      await memoryClient.tevmCall({
+        from: FAUCET_ADDRESS,
         to: address,
         value: parseEther(NUM_OF_ETH),
+        createTransaction: "on-success",
       });
+      const chainId = await memoryClient.getChainId();
+      console.log("the chain id is", chainId);
+      const mineResult = await memoryClient.tevmMine();
+      console.log("⛏ ~ file: FaucetButton.tsx:sendETH ~ mineResult", mineResult);
+      if (mineResult.errors) throw new Error("Failed to mine");
+      const blockNumber = await memoryClient.getBlockNumber();
+      console.log("⛏ ~ file: FaucetButton.tsx:sendETH ~ blockNumber", blockNumber);
+      console.log("ETH sent to address", address);
       setLoading(false);
     } catch (error) {
       console.error("⚡️ ~ file: FaucetButton.tsx:sendETH ~ error", error);
@@ -45,10 +57,10 @@ export const FaucetButton = () => {
     }
   };
 
-  // Render only on local chain
+  /* // Render only on local chain
   if (ConnectedChain?.id !== hardhat.id) {
     return null;
-  }
+  } */
 
   const isBalanceZero = balance && balance.value === 0n;
 

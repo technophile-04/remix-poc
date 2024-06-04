@@ -2381,7 +2381,7 @@ __metadata:
     react-dom: ^18.2.0
     react-hot-toast: ^2.4.0
     tailwindcss: ^3.4.3
-    tevm: ^1.1.0-next.68
+    tevm: 1.1.0-next.63
     type-fest: ^4.6.0
     typescript: ^5.1.6
     use-debounce: ^8.0.4
@@ -2704,7 +2704,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tevm/actions-types@npm:^1.1.0-next.68":
+"@tevm/actions-types@npm:^1.1.0-next.60, @tevm/actions-types@npm:^1.1.0-next.68":
   version: 1.1.0-next.68
   resolution: "@tevm/actions-types@npm:1.1.0-next.68"
   checksum: f9ee94efbb03c094a9fa9f6eaca13e6295ba263c032d93882bdf57446a9bb35c87bc44a57e3b499bdefde62ab109c9ac3736af8566148afea97e49555ebb55d0
@@ -2743,7 +2743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tevm/base-client@npm:^1.1.0-next.68":
+"@tevm/base-client@npm:^1.1.0-next.63, @tevm/base-client@npm:^1.1.0-next.68":
   version: 1.1.0-next.68
   resolution: "@tevm/base-client@npm:1.1.0-next.68"
   dependencies:
@@ -2863,7 +2863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tevm/decorators@npm:^1.1.0-next.68":
+"@tevm/decorators@npm:^1.1.0-next.62, @tevm/decorators@npm:^1.1.0-next.68":
   version: 1.1.0-next.68
   resolution: "@tevm/decorators@npm:1.1.0-next.68"
   dependencies:
@@ -2948,7 +2948,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tevm/memory-client@npm:^1.1.0-next.68":
+"@tevm/memory-client@npm:^1.1.0-next.63":
   version: 1.1.0-next.68
   resolution: "@tevm/memory-client@npm:1.1.0-next.68"
   dependencies:
@@ -2983,7 +2983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tevm/procedures-types@npm:1.1.0-next.64, @tevm/procedures-types@npm:^1.1.0-next.64":
+"@tevm/procedures-types@npm:1.1.0-next.64, @tevm/procedures-types@npm:^1.1.0-next.60, @tevm/procedures-types@npm:^1.1.0-next.64":
   version: 1.1.0-next.64
   resolution: "@tevm/procedures-types@npm:1.1.0-next.64"
   dependencies:
@@ -3069,7 +3069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tevm/state@npm:^1.1.0-next.66":
+"@tevm/state@npm:^1.1.0-next.63, @tevm/state@npm:^1.1.0-next.66":
   version: 1.1.0-next.66
   resolution: "@tevm/state@npm:1.1.0-next.66"
   dependencies:
@@ -3084,7 +3084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tevm/sync-storage-persister@npm:^1.1.0-next.66":
+"@tevm/sync-storage-persister@npm:^1.1.0-next.63, @tevm/sync-storage-persister@npm:^1.1.0-next.66":
   version: 1.1.0-next.66
   resolution: "@tevm/sync-storage-persister@npm:1.1.0-next.66"
   dependencies:
@@ -14898,29 +14898,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tevm@npm:^1.1.0-next.68":
-  version: 1.1.0-next.68
-  resolution: "tevm@npm:1.1.0-next.68"
+"tevm@npm:1.1.0-next.63":
+  version: 1.1.0-next.63
+  resolution: "tevm@npm:1.1.0-next.63"
   dependencies:
-    "@tevm/actions-types": ^1.1.0-next.68
-    "@tevm/base-client": ^1.1.0-next.68
+    "@tevm/actions-types": ^1.1.0-next.60
+    "@tevm/base-client": ^1.1.0-next.63
     "@tevm/client-types": ^1.1.0-next.60
     "@tevm/common": ^1.1.0-next.62
     "@tevm/contract": ^1.1.0-next.62
-    "@tevm/decorators": ^1.1.0-next.68
+    "@tevm/decorators": ^1.1.0-next.62
     "@tevm/errors": ^1.1.0-next.60
     "@tevm/http-client": ^1.1.0-next.62
     "@tevm/jsonrpc": ^1.1.0-next.60
-    "@tevm/memory-client": ^1.1.0-next.68
+    "@tevm/memory-client": ^1.1.0-next.63
     "@tevm/precompiles": ^1.1.0-next.62
     "@tevm/predeploys": ^1.1.0-next.62
-    "@tevm/procedures-types": ^1.1.0-next.64
+    "@tevm/procedures-types": ^1.1.0-next.60
     "@tevm/server": ^1.1.0-next.60
-    "@tevm/state": ^1.1.0-next.66
-    "@tevm/sync-storage-persister": ^1.1.0-next.66
+    "@tevm/state": ^1.1.0-next.63
+    "@tevm/sync-storage-persister": ^1.1.0-next.63
     "@tevm/utils": ^1.1.0-next.60
     "@tevm/viem": ^1.1.0-next.60
-  checksum: af2960059241c1c1f43f550c0ee55de9b4de0358d9eb54d9834b8d52d7a6838b1f31a8c3fd44b22c6df9fef1618894171900a51856c77278b7c3c1a042092869
+  checksum: 7eefb2e4bbd753c6b868c10c9e7da4f29e1088c2f058bd269058b1aff17e2ac1421c425c952d57a73f3c1a2acb621c9651c7ce6b4e83e69a3809b02e9f4f7dc1
   languageName: node
   linkType: hard
 
