@@ -1,9 +1,9 @@
 import { wagmiConnectors } from "./wagmiConnectors";
-import { Chain, createClient, http } from "viem";
+import { createMemoryClient, tevmTransport } from "tevm";
+import { Chain } from "viem";
 import { hardhat, mainnet } from "viem/chains";
 import { createConfig } from "wagmi";
 import scaffoldConfig from "~~/scaffold.config";
-import { getAlchemyHttpUrl } from "~~/utils/scaffold-eth";
 
 const { targetNetworks } = scaffoldConfig;
 
@@ -12,19 +12,13 @@ export const enabledChains = targetNetworks.find((network: Chain) => network.id 
   ? targetNetworks
   : ([...targetNetworks, mainnet] as const);
 
+const memoryClient = createMemoryClient();
+
 export const wagmiConfig = createConfig({
-  chains: enabledChains,
+  chains: [hardhat],
   connectors: wagmiConnectors,
   ssr: true,
-  client({ chain }) {
-    return createClient({
-      chain,
-      transport: http(getAlchemyHttpUrl(chain.id)),
-      ...(chain.id !== (hardhat as Chain).id
-        ? {
-            pollingInterval: scaffoldConfig.pollingInterval,
-          }
-        : {}),
-    });
+  transports: {
+    [hardhat.id]: tevmTransport(memoryClient),
   },
 });
