@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import { createMemoryClient } from "tevm";
+import { tevmDefault } from "tevm/common";
 import { createWalletClient, http, parseEther } from "viem";
 import { hardhat } from "viem/chains";
 import { useAccount } from "wagmi";
+import { getBlockNumber } from "wagmi/actions";
 import { BanknotesIcon } from "@heroicons/react/24/outline";
 import { useTransactor } from "~~/hooks/scaffold-eth";
 import { useWatchBalance } from "~~/hooks/scaffold-eth/useWatchBalance";
+import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 
 // Number of ETH faucet sends to an address
 const NUM_OF_ETH = "1";
@@ -18,7 +21,9 @@ const localWalletClient = createWalletClient({
   transport: http(),
 });
 
-const memoryClient = createMemoryClient();
+const memoryClient = createMemoryClient({
+  common: { ...tevmDefault, id: 31337 },
+});
 
 /**
  * FaucetButton button which lets you grab eth.
@@ -36,19 +41,28 @@ export const FaucetButton = () => {
     if (!address) return;
     try {
       setLoading(true);
+      console.log("The tevmDefault", tevmDefault);
+      console.log("The hardhat chain", hardhat);
       await memoryClient.tevmCall({
         from: FAUCET_ADDRESS,
         to: address,
         value: parseEther(NUM_OF_ETH),
         createTransaction: "on-success",
       });
+
       const chainId = await memoryClient.getChainId();
       console.log("the chain id is", chainId);
+
       const mineResult = await memoryClient.tevmMine();
       console.log("⛏ ~ file: FaucetButton.tsx:sendETH ~ mineResult", mineResult);
+
       if (mineResult.errors) throw new Error("Failed to mine");
+
       const blockNumber = await memoryClient.getBlockNumber();
+      const blockNumber2 = await getBlockNumber(wagmiConfig);
+
       console.log("⛏ ~ file: FaucetButton.tsx:sendETH ~ blockNumber", blockNumber);
+      console.log("⛏ ~ file: FaucetButton.tsx:sendETH ~ wagmi blockNumber", blockNumber2);
       console.log("ETH sent to address", address);
       setLoading(false);
     } catch (error) {

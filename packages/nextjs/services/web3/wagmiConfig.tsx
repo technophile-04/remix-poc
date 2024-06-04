@@ -1,5 +1,6 @@
 import { wagmiConnectors } from "./wagmiConnectors";
 import { createMemoryClient, tevmTransport } from "tevm";
+import { tevmDefault } from "tevm/common";
 import { Chain } from "viem";
 import { hardhat, mainnet } from "viem/chains";
 import { createConfig } from "wagmi";
@@ -12,7 +13,9 @@ export const enabledChains = targetNetworks.find((network: Chain) => network.id 
   ? targetNetworks
   : ([...targetNetworks, mainnet] as const);
 
-const memoryClient = createMemoryClient();
+const memoryClient = createMemoryClient({
+  common: { ...tevmDefault, id: 31337 },
+});
 
 export const wagmiConfig = createConfig({
   chains: [hardhat],
