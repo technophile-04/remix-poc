@@ -1,48 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { createMemoryClient } from "tevm";
-import { tevmDefault } from "tevm/common";
-import { createWalletClient, http, parseEther } from "viem";
-import { hardhat } from "viem/chains";
+import { parseEther } from "viem";
 import { useAccount } from "wagmi";
-import { getBlockNumber } from "wagmi/actions";
 import { BanknotesIcon } from "@heroicons/react/24/outline";
-import { useTransactor } from "~~/hooks/scaffold-eth";
+import { TxnNotification } from "~~/hooks/scaffold-eth";
 import { useWatchBalance } from "~~/hooks/scaffold-eth/useWatchBalance";
-import { wagmiConfig } from "~~/services/web3/wagmiConfig";
+import { memoryClient } from "~~/services/web3/wagmiConfig";
+import { getParsedError, notification } from "~~/utils/scaffold-eth";
 
 // Number of ETH faucet sends to an address
 const NUM_OF_ETH = "1";
 const FAUCET_ADDRESS = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
 
-const localWalletClient = createWalletClient({
-  chain: hardhat,
-  transport: http(),
-});
-
-const memoryClient = createMemoryClient({
-  common: { ...tevmDefault, id: 31337 },
-});
-
 /**
  * FaucetButton button which lets you grab eth.
  */
 export const FaucetButton = () => {
-  const { address, chain: ConnectedChain } = useAccount();
+  const { address } = useAccount();
 
   const { data: balance } = useWatchBalance({ address });
 
   const [loading, setLoading] = useState(false);
 
-  const faucetTxn = useTransactor(localWalletClient);
-
   const sendETH = async () => {
     if (!address) return;
+
+    let notificationId = null;
     try {
       setLoading(true);
-      console.log("The tevmDefault", tevmDefault);
-      console.log("The hardhat chain", hardhat);
+
+      notificationId = notification.loading(<TxnNotification message="Waiting for transaction to complete." />);
+
       await memoryClient.tevmCall({
         from: FAUCET_ADDRESS,
         to: address,
@@ -50,23 +39,23 @@ export const FaucetButton = () => {
         createTransaction: "on-success",
       });
 
-      const chainId = await memoryClient.getChainId();
-      console.log("the chain id is", chainId);
-
       const mineResult = await memoryClient.tevmMine();
-      console.log("⛏ ~ file: FaucetButton.tsx:sendETH ~ mineResult", mineResult);
+
+      notification.remove(notificationId);
+
+      notification.success(<TxnNotification message="Transaction completed successfully!" />, {
+        icon: "🎉",
+      });
 
       if (mineResult.errors) throw new Error("Failed to mine");
-
-      const blockNumber = await memoryClient.getBlockNumber();
-      const blockNumber2 = await getBlockNumber(wagmiConfig);
-
-      console.log("⛏ ~ file: FaucetButton.tsx:sendETH ~ blockNumber", blockNumber);
-      console.log("⛏ ~ file: FaucetButton.tsx:sendETH ~ wagmi blockNumber", blockNumber2);
-      console.log("ETH sent to address", address);
-      setLoading(false);
     } catch (error) {
-      console.error("⚡️ ~ file: FaucetButton.tsx:sendETH ~ error", error);
+      if (notificationId) {
+        notification.remove(notificationId);
+      }
+      console.error("⚡️ ~ file: useTransactor.ts ~ error", error);
+      const message = getParsedError(error);
+      notification.error(message);
+    } finally {
       setLoading(false);
     }
   };

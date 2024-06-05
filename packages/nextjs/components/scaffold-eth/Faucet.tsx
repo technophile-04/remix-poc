@@ -1,21 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Address as AddressType, createWalletClient, http, parseEther } from "viem";
+import { prefundedAccounts } from "tevm";
+import { Address as AddressType, parseEther } from "viem";
 import { hardhat } from "viem/chains";
 import { useAccount } from "wagmi";
 import { BanknotesIcon } from "@heroicons/react/24/outline";
 import { Address, AddressInput, Balance, EtherInput } from "~~/components/scaffold-eth";
-import { useTransactor } from "~~/hooks/scaffold-eth";
-import { notification } from "~~/utils/scaffold-eth";
+import { TxnNotification } from "~~/hooks/scaffold-eth";
+import { memoryClient } from "~~/services/web3/wagmiConfig";
+import { getParsedError, notification } from "~~/utils/scaffold-eth";
 
 // Account index to use from generated hardhat accounts.
 const FAUCET_ACCOUNT_INDEX = 0;
-
-const localWalletClient = createWalletClient({
-  chain: hardhat,
-  transport: http(),
-});
 
 /**
  * Faucet modal which lets you send ETH to any address.
@@ -28,13 +25,10 @@ export const Faucet = () => {
 
   const { chain: ConnectedChain } = useAccount();
 
-  const faucetTxn = useTransactor(localWalletClient);
-
   useEffect(() => {
     const getFaucetAddress = async () => {
       try {
-        const accounts = await localWalletClient.getAddresses();
-        setFaucetAddress(accounts[FAUCET_ACCOUNT_INDEX]);
+        setFaucetAddress(prefundedAccounts[FAUCET_ACCOUNT_INDEX]);
       } catch (error) {
         notification.error(
           <>
@@ -58,18 +52,40 @@ export const Faucet = () => {
     if (!faucetAddress || !inputAddress) {
       return;
     }
+
+    let notificationId = null;
     try {
       setLoading(true);
-      await faucetTxn({
+
+      notificationId = notification.loading(<TxnNotification message="Waiting for transaction to complete." />);
+
+      await memoryClient.tevmCall({
+        from: faucetAddress,
         to: inputAddress,
         value: parseEther(sendValue as `${number}`),
-        account: faucetAddress,
+        createTransaction: "on-success",
       });
-      setLoading(false);
+
+      const mineResult = await memoryClient.tevmMine();
+
+      notification.remove(notificationId);
+
+      notification.success(<TxnNotification message="Transaction completed successfully!" />, {
+        icon: "🎉",
+      });
+
+      if (mineResult.errors) throw new Error("Failed to mine");
+
       setInputAddress(undefined);
       setSendValue("");
     } catch (error) {
-      console.error("⚡️ ~ file: Faucet.tsx:sendETH ~ error", error);
+      if (notificationId) {
+        notification.remove(notificationId);
+      }
+      console.error("⚡️ ~ file: useTransactor.ts ~ error", error);
+      const message = getParsedError(error);
+      notification.error(message);
+    } finally {
       setLoading(false);
     }
   };
