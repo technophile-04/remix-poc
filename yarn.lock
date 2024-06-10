@@ -1576,6 +1576,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@noble/curves@npm:1.4.0, @noble/curves@npm:~1.4.0":
+  version: 1.4.0
+  resolution: "@noble/curves@npm:1.4.0"
+  dependencies:
+    "@noble/hashes": 1.4.0
+  checksum: 0014ff561d16e98da4a57e2310a4015e4bdab3b1e1eafcd18d3f9b955c29c3501452ca5d702fddf8ca92d570bbeadfbe53fe16ebbd81a319c414f739154bb26b
+  languageName: node
+  linkType: hard
+
 "@noble/hashes@npm:1.2.0, @noble/hashes@npm:~1.2.0":
   version: 1.2.0
   resolution: "@noble/hashes@npm:1.2.0"
@@ -1601,6 +1610,13 @@ __metadata:
   version: 1.3.3
   resolution: "@noble/hashes@npm:1.3.3"
   checksum: 8a6496d1c0c64797339bc694ad06cdfaa0f9e56cd0c3f68ae3666cfb153a791a55deb0af9c653c7ed2db64d537aa3e3054629740d2f2338bb1dcb7ab60cd205b
+  languageName: node
+  linkType: hard
+
+"@noble/hashes@npm:1.4.0, @noble/hashes@npm:~1.4.0":
+  version: 1.4.0
+  resolution: "@noble/hashes@npm:1.4.0"
+  checksum: 8ba816ae26c90764b8c42493eea383716396096c5f7ba6bea559993194f49d80a73c081f315f4c367e51bd2d5891700bcdfa816b421d24ab45b41cb03e4f3342
   languageName: node
   linkType: hard
 
@@ -1981,6 +1997,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@openzeppelin/contracts@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@openzeppelin/contracts@npm:5.0.2"
+  checksum: 0cce6fc284bd1d89e2a447027832a62f1356b44ee31088899453e10349a63a62df2f07da63d76e4c41aad9c86b96b650b2b6fc85439ef276850dda1170a047fd
+  languageName: node
+  linkType: hard
+
 "@parcel/watcher-android-arm64@npm:2.3.0":
   version: 2.3.0
   resolution: "@parcel/watcher-android-arm64@npm:2.3.0"
@@ -2133,7 +2156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ponder/utils@npm:^0.1.5":
+"@ponder/utils@npm:^0.1.6":
   version: 0.1.6
   resolution: "@ponder/utils@npm:0.1.6"
   peerDependencies:
@@ -2218,7 +2241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@scure/base@npm:^1.1.5, @scure/base@npm:~1.1.4":
+"@scure/base@npm:^1.1.5, @scure/base@npm:~1.1.4, @scure/base@npm:~1.1.6":
   version: 1.1.6
   resolution: "@scure/base@npm:1.1.6"
   checksum: d6deaae91deba99e87939af9e55d80edba302674983f32bba57f942e22b1726a83c62dc50d8f4370a5d5d35a212dda167fb169f4b0d0c297488d8604608fc3d3
@@ -2276,6 +2299,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@scure/bip32@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@scure/bip32@npm:1.4.0"
+  dependencies:
+    "@noble/curves": ~1.4.0
+    "@noble/hashes": ~1.4.0
+    "@scure/base": ~1.1.6
+  checksum: eff491651cbf2bea8784936de75af5fc020fc1bbb9bcb26b2cfeefbd1fb2440ebfaf30c0733ca11c0ae1e272a2ef4c3c34ba5c9fb3e1091c3285a4272045b0c6
+  languageName: node
+  linkType: hard
+
 "@scure/bip39@npm:1.1.1":
   version: 1.1.1
   resolution: "@scure/bip39@npm:1.1.1"
@@ -2303,6 +2337,16 @@ __metadata:
     "@noble/hashes": ~1.3.2
     "@scure/base": ~1.1.4
   checksum: cb99505e6d2deef8e55e81df8c563ce8dbfdf1595596dc912bceadcf366c91b05a98130e928ecb090df74efdb20150b64acc4be55bc42768cab4d39a2833d234
+  languageName: node
+  linkType: hard
+
+"@scure/bip39@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@scure/bip39@npm:1.3.0"
+  dependencies:
+    "@noble/hashes": ~1.4.0
+    "@scure/base": ~1.1.6
+  checksum: dbb0b27df753eb6c6380010b25cc9a9ea31f9cb08864fc51e69e5880ff7e2b8f85b72caea1f1f28af165e83b72c48dd38617e43fc632779d025b50ba32ea759e
   languageName: node
   linkType: hard
 
@@ -2358,6 +2402,7 @@ __metadata:
     "@types/nprogress": ^0
     "@types/react": ^18.0.9
     "@types/react-copy-to-clipboard": ^5.0.4
+    "@types/uuid": ^9
     "@typescript-eslint/eslint-plugin": ^5.39.0
     "@uniswap/sdk-core": ^4.0.1
     "@uniswap/v2-sdk": ^3.0.1
@@ -2380,12 +2425,14 @@ __metadata:
     react-copy-to-clipboard: ^5.1.0
     react-dom: ^18.2.0
     react-hot-toast: ^2.4.0
+    solc: ^0.8.26
     tailwindcss: ^3.4.3
-    tevm: 1.1.0-next.63
+    tevm: ^1.1.0-next.73
     type-fest: ^4.6.0
     typescript: ^5.1.6
     use-debounce: ^8.0.4
     usehooks-ts: ^2.13.0
+    uuid: ^9.0.1
     vercel: ^32.4.1
     viem: 2.10.9
     wagmi: 2.9.2
@@ -2704,423 +2751,467 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tevm/actions-types@npm:^1.1.0-next.60, @tevm/actions-types@npm:^1.1.0-next.68":
-  version: 1.1.0-next.68
-  resolution: "@tevm/actions-types@npm:1.1.0-next.68"
-  checksum: f9ee94efbb03c094a9fa9f6eaca13e6295ba263c032d93882bdf57446a9bb35c87bc44a57e3b499bdefde62ab109c9ac3736af8566148afea97e49555ebb55d0
+"@tevm/actions-types@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/actions-types@npm:1.1.0-next.72"
+  checksum: 8fcdb8f9c0a0e301a0e3cf7048fafe877e31b3b7181f0faa5886e67006eaf58af97c55d1333730c38a383e4aedcbe5d52ced8e5641d97a8cf3b0594749c63901
   languageName: node
   linkType: hard
 
-"@tevm/actions@npm:^1.1.0-next.68":
-  version: 1.1.0-next.68
-  resolution: "@tevm/actions@npm:1.1.0-next.68"
+"@tevm/actions@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/actions@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/block": ^1.1.0-next.62
-    "@tevm/blockchain": ^1.1.0-next.62
-    "@tevm/jsonrpc": ^1.1.0-next.60
-    "@tevm/procedures-types": 1.1.0-next.64
-    "@tevm/receipt-manager": ^1.1.0-next.62
-    "@tevm/tx": ^1.1.0-next.60
-    "@tevm/utils": ^1.1.0-next.60
-    "@tevm/vm": ^1.1.0-next.62
-    "@tevm/zod": ^1.1.0-next.60
+    "@tevm/base-client": ^1.1.0-next.73
+    "@tevm/block": ^1.1.0-next.72
+    "@tevm/blockchain": ^1.1.0-next.72
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/errors": ^1.1.0-next.72
+    "@tevm/evm": ^1.1.0-next.73
+    "@tevm/jsonrpc": ^1.1.0-next.72
+    "@tevm/procedures-types": ^1.1.0-next.73
+    "@tevm/receipt-manager": ^1.1.0-next.72
+    "@tevm/state": ^1.1.0-next.73
+    "@tevm/tx": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+    "@tevm/vm": ^1.1.0-next.73
+    "@tevm/zod": ^1.1.0-next.72
+  peerDependencies:
     viem: ^2.12.0
-  checksum: e5e29a0f8ba9b5bfbf1a023553e321710d2837d9dea7f5de8c303b984bd28047b78225f242f0a05eb73e47ddffe0b4b60be7e2b9b7b8fa1196b0964296abbdff
+  checksum: 63a0b42be76f8b9ad9ec09fd129d292ded5cb978363622204f5e5908637b3e5d97ee1c729e6c25c06d56abb68b6924cd7abc351a69af7e94fe9d8319062496f7
   languageName: node
   linkType: hard
 
-"@tevm/base-bundler@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/base-bundler@npm:1.1.0-next.60"
+"@tevm/base-bundler@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/base-bundler@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/bundler-cache": ^1.1.0-next.60
-    "@tevm/compiler": ^1.1.0-next.60
-    "@tevm/config": ^1.1.0-next.60
-    "@tevm/runtime": ^1.1.0-next.60
+    "@tevm/bundler-cache": ^1.1.0-next.72
+    "@tevm/compiler": ^1.1.0-next.72
+    "@tevm/config": ^1.1.0-next.72
+    "@tevm/runtime": ^1.1.0-next.72
+    "@tevm/solc": ^1.1.0-next.72
+    "@tevm/tsconfig": ^1.1.0-next.72
+    "@tevm/tsupconfig": ^1.1.0-next.72
+    "@types/node": ^20.8.9
     effect: 2.0.0-next.54
+    solc: 0.8.22
     solidity-ast: ^0.4.52
-  checksum: 52c5e4da4ee87ce05b3ddfa4b0c9a55764739e6771ed9973e34dbc5121dbc539f3aa9bded32ec6506bb09461000c74d5fe113d828317771b664bb13d6100b9b3
+  checksum: cd72add1e272766729dc0cf76a860072e1fd5f11f2aa0ba59ff0784c48cae24e855656f4bc9cea0b9f9434514f31134a15f7c362afda1b99f57e15790c07845c
   languageName: node
   linkType: hard
 
-"@tevm/base-client@npm:^1.1.0-next.63, @tevm/base-client@npm:^1.1.0-next.68":
-  version: 1.1.0-next.68
-  resolution: "@tevm/base-client@npm:1.1.0-next.68"
+"@tevm/base-client@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/base-client@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/block": 1.1.0-next.62
-    "@tevm/blockchain": ^1.1.0-next.62
-    "@tevm/common": ^1.1.0-next.62
-    "@tevm/evm": ^1.1.0-next.62
-    "@tevm/jsonrpc": ^1.1.0-next.60
-    "@tevm/logger": ^1.1.0-next.60
-    "@tevm/predeploys": ^1.1.0-next.62
-    "@tevm/receipt-manager": 1.1.0-next.62
-    "@tevm/state": ^1.1.0-next.66
-    "@tevm/sync-storage-persister": ^1.1.0-next.66
-    "@tevm/tx": 1.1.0-next.60
-    "@tevm/txpool": ^1.1.0-next.62
-    "@tevm/utils": ^1.1.0-next.60
-    "@tevm/vm": ^1.1.0-next.62
-    viem: ^2.12.0
-  checksum: 51726123cfe3a2aa91aad01ca224ec373fcbc8c4c768697bd2c898b9dd94f5e48d64c68baddc7fbabc858255a3806214936447e8d1d5733a5844a8d8e8565f86
+    "@tevm/block": ^1.1.0-next.72
+    "@tevm/blockchain": ^1.1.0-next.72
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/evm": ^1.1.0-next.73
+    "@tevm/jsonrpc": ^1.1.0-next.72
+    "@tevm/logger": ^1.1.0-next.72
+    "@tevm/predeploys": ^1.1.0-next.72
+    "@tevm/receipt-manager": ^1.1.0-next.72
+    "@tevm/state": ^1.1.0-next.73
+    "@tevm/sync-storage-persister": ^1.1.0-next.73
+    "@tevm/tx": ^1.1.0-next.72
+    "@tevm/txpool": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+    "@tevm/vm": ^1.1.0-next.73
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: 68017ce46309d34b60b15fab5c8b6fd3f728494b7eda955c91d63866a101200048fba110a009bdc0f77ed7c4b21c04e807bc4cd8d89af2d071187e31663aac7f
   languageName: node
   linkType: hard
 
-"@tevm/block@npm:1.1.0-next.62, @tevm/block@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/block@npm:1.1.0-next.62"
+"@tevm/block@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/block@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/common": ^1.1.0-next.62
-    "@tevm/rlp": ^1.1.0-next.60
-    "@tevm/trie": ^1.1.0-next.60
-    "@tevm/tx": ^1.1.0-next.60
-    "@tevm/utils": ^1.1.0-next.60
-  checksum: cd4f6832b7b09c90efa97da9856b3c04ec9dd7403c00d24293c37a261411ec4624af32d9659f6c5aac42228063f0322f0727c5ed3627c66cf2d43d953b60f2c5
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/rlp": ^1.1.0-next.72
+    "@tevm/trie": ^1.1.0-next.72
+    "@tevm/tx": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: ca8b3b10da596e34ee6ca61bc05788d457a76cb746764ba662553321eaa41c6d96dcaddf0130695ccac2f535d9c81252ff6f4c92132dcb7c6993435da2dbcaf2
   languageName: node
   linkType: hard
 
-"@tevm/blockchain@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/blockchain@npm:1.1.0-next.62"
+"@tevm/blockchain@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/blockchain@npm:1.1.0-next.72"
   dependencies:
     "@ethereumjs/blockchain": ^7.2.0
-    "@tevm/block": ^1.1.0-next.62
-    "@tevm/jsonrpc": ^1.1.0-next.60
-    "@tevm/logger": ^1.1.0-next.60
-    "@tevm/trie": ^1.1.0-next.60
-    viem: ^2.9.28
-  checksum: 914936a78690f2a0f49d785d4ead744242021a04a5a4d1be543261a0a77a314d9ab935f3a470251c66863c8f4fc27694651956ce333a08bc70bed2bf3d81615a
+    "@tevm/block": ^1.1.0-next.72
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/jsonrpc": ^1.1.0-next.72
+    "@tevm/logger": ^1.1.0-next.72
+    "@tevm/trie": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: 4192b3b4b8a64be982529f21327b11734d0aa01d244084ea1ad569810080e5b5d8ad93b43949f511436d7556918a9d7e51b172630e1efcc6416447c74e267deb
   languageName: node
   linkType: hard
 
-"@tevm/bundler-cache@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/bundler-cache@npm:1.1.0-next.60"
+"@tevm/bundler-cache@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/bundler-cache@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/compiler": ^1.1.0-next.60
-    "@tevm/tsconfig": ^1.1.0-next.60
-    "@tevm/tsupconfig": ^1.1.0-next.60
+    "@tevm/compiler": ^1.1.0-next.72
+    "@tevm/tsconfig": ^1.1.0-next.72
+    "@tevm/tsupconfig": ^1.1.0-next.72
     "@types/node": ^20.8.9
-  checksum: c62c19b33f25e0c7b7b6ce7876a16ea9e18f25d280b3f00b5ffac03a744a337f146c6f99f1c3e14e77d6eb9d0021171c8de3ae1424a04eba6e4958196ad1baf6
+  checksum: 94445ef1cee93bd3648d9cc6649cb3ea82ddc961ff8ee6f0f1fb31722669ad5acaae27e74962b218b2f99b52b6a08f906cb5f463e9dddf233cb1ad6f1a066438
   languageName: node
   linkType: hard
 
-"@tevm/client-types@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/client-types@npm:1.1.0-next.60"
+"@tevm/client-types@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/client-types@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/utils": ^1.1.0-next.60
-  checksum: deaed546f6d68c7380580a908c2f664edcf17ff1ee3e8f62f6bf3f62f5e2bc696a5f893dd5f2f6b36a915e05ebadc7dcfe3aa4ca6679cebf168a908eec166b26
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: 0bb2ac8ec7cf7ff2ee29cbbc02ffb894019afab2c0e63439bf35e295888b2bb6c78a923b36923b50059a7ccc9fc8f8f346a02c38530745313d7f6dde12ec68f3
   languageName: node
   linkType: hard
 
-"@tevm/common@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/common@npm:1.1.0-next.62"
+"@tevm/common@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/common@npm:1.1.0-next.72"
   dependencies:
     "@ethereumjs/common": ^4.3.0
-    "@tevm/logger": ^1.1.0-next.60
-    "@tevm/utils": 1.1.0-next.60
-    viem: ^2.12.0
-  checksum: f93581716f54acad757be001a0c6aa7c895ae88f5538c6f573adf56fbf9772f47ccc56a1864832531a27e71cdce9336b777f293fb2f0354f8ff03b6f5bc945e0
+    "@tevm/logger": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: d31a90e7d96dd31ff8722d1ac828d6ae05954e49006b51e83c39319db09c25061ae3bac4828e4d85963e081773c31863947504aa54d8a53410866f1b583972e9
   languageName: node
   linkType: hard
 
-"@tevm/compiler@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/compiler@npm:1.1.0-next.60"
+"@tevm/compiler@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/compiler@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/config": ^1.1.0-next.60
-    "@tevm/resolutions": ^1.1.0-next.60
-    "@tevm/solc": ^1.1.0-next.60
+    "@tevm/config": ^1.1.0-next.72
+    "@tevm/resolutions": ^1.1.0-next.72
+    "@tevm/solc": ^1.1.0-next.72
     "@types/node": ^20.8.9
     effect: 2.0.0-next.54
     resolve: ^1.22.8
     solidity-ast: ^0.4.52
-  checksum: e39b128176180230f67c2a42baa5359a015ad747e8084fba0f9128bd483fb42b1ac5bd7390ec7ef4a94ef90b8f428204f3074937d5ec50c25db7d8bffb6fab0f
+  checksum: 6bd8c88f3739431cd605d2007c6931da5d3c86b5743f13cd7c3e9e9b02809998948e37fcd28293158ec82a3ca0efc1a3bac819cb70105262b090d56b23781730
   languageName: node
   linkType: hard
 
-"@tevm/config@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/config@npm:1.1.0-next.60"
+"@tevm/config@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/config@npm:1.1.0-next.72"
   dependencies:
     "@effect/schema": 0.47.7
-    "@tevm/effect": ^1.1.0-next.60
+    "@tevm/effect": ^1.1.0-next.72
     "@types/node": ^20.8.9
     effect: 2.0.0-next.54
     zod: ^3.22.4
-  checksum: aa1370c0ef4e21c3f754bbab3fbe115e46a62781e54191c9b3d59a0e542ea22ceb4d3f4250034c68ff4181ec7b400e82c429fce26c0b01a3cd5bcdbf19eef83f
+  checksum: 076c4771d58c39c39253f79b9a76481f47ff8c54dfd1f678378250ce2f8e732313b33124b61c1dd2a62864e2c1e9c310f8cf9dd7be60997cb1dd2e8c87f99651
   languageName: node
   linkType: hard
 
-"@tevm/contract@npm:1.1.0-next.62, @tevm/contract@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/contract@npm:1.1.0-next.62"
+"@tevm/contract@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/contract@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/utils": ^1.1.0-next.60
-  checksum: 00b9c0c53e407df4e1a6d513ca96d5da759633f9d7bb5235681fc299e3dc644c9144ba022b67a8b74ccecb5936ab2742669f8df9bc3b03dd37a51dbde319556f
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: b25f20ccccfbe767a90081a3d5560e49ffd7b198f0968acf626b27c696543d442ea420ce5b953b4a2b85ec5079e31944505b560cb783ffb53e0714159dc8e0fa
   languageName: node
   linkType: hard
 
-"@tevm/decorators@npm:^1.1.0-next.62, @tevm/decorators@npm:^1.1.0-next.68":
-  version: 1.1.0-next.68
-  resolution: "@tevm/decorators@npm:1.1.0-next.68"
+"@tevm/decorators@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/decorators@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/actions": ^1.1.0-next.68
-    "@tevm/actions-types": ^1.1.0-next.68
-    "@tevm/procedures": ^1.1.0-next.68
-    "@tevm/procedures-types": ^1.1.0-next.64
-    "@tevm/utils": ^1.1.0-next.60
-    viem: ^2.7.16
-  checksum: e80b004e55d1e96872a7f4a392461c377879b38d308875722ab15d3040c22ec7c1890f12c848e70f0586125cba3b691d4d69336373a1f02549b10b31b49ebfc4
+    "@tevm/actions": ^1.1.0-next.73
+    "@tevm/actions-types": ^1.1.0-next.72
+    "@tevm/base-client": ^1.1.0-next.73
+    "@tevm/procedures": ^1.1.0-next.73
+    "@tevm/procedures-types": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: 91cdfd576ac2058cce1bd5780e2d1e220ab55c4de0bf8688c676aa17fd3b4384e32a2c442e7d499706c97efbea06875c103821ceb944582af6a680eb826c2c4c
   languageName: node
   linkType: hard
 
-"@tevm/effect@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/effect@npm:1.1.0-next.60"
+"@tevm/effect@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/effect@npm:1.1.0-next.72"
   dependencies:
     effect: 2.0.0-next.54
     jsonc-parser: ^3.2.0
     resolve: ^1.22.8
-  checksum: b151f324ea5a838fb16c12d7c17db61fa0013cbff7a8374d6330f6c33b9632db949a2e8cfbe23e455ef6c1a594a01a1631c08b8e8d7ccf5bc73cf6265c202956
+  checksum: 5acef4ef23113d40364067797dbc544dd5f60b5c15d44170dd5ec3da12dc13032bf4c4823b7dd125ab3ac7f8eb147dcf25c086796086702f67aab25c0b6af706
   languageName: node
   linkType: hard
 
-"@tevm/errors@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/errors@npm:1.1.0-next.60"
-  checksum: b2b2c8c0e961a7f552b647e0e8835a22d8e39a122e1343316531a9d2d65b7c988b2c66dd8185afafac8f524c19afbfa6c4cd3d0aca5d3d9eb2b3dccac1ca7cdb
+"@tevm/errors@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/errors@npm:1.1.0-next.72"
+  checksum: 51504bcae6eb735e1fbd33950cd23c4e7a5654be83c09962addc9e32a1f1d811c08d1dafa9f5806d760744ca5c5f815426518d3c4db43ee687cf7ff06cf1327a
   languageName: node
   linkType: hard
 
-"@tevm/esbuild-plugin@npm:1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/esbuild-plugin@npm:1.1.0-next.60"
+"@tevm/esbuild-plugin@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/esbuild-plugin@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/unplugin": ^1.1.0-next.60
-  checksum: 77ca25f6889c7dc2eec7ddb561c41586f79e4e9868d3e31a6534e0b1dd084cca8f3f2a171e27dd22ee4d9228d0a70f31ac9eaf908c5913b55085135e26e1d915
+    "@tevm/unplugin": ^1.1.0-next.73
+  checksum: 4ff7b145032a9ecf3aaa14f2f17d9cd0d56dc66242f8ff29dc79faf99b2ec26d831d0c85d3b249ce8a8e68add5786c9ed76be1c00a134815eda6d5fe1007b85a
   languageName: node
   linkType: hard
 
-"@tevm/evm@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/evm@npm:1.1.0-next.62"
+"@tevm/evm@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/evm@npm:1.1.0-next.73"
   dependencies:
     "@ethereumjs/evm": ^3.0.0
-    "@tevm/blockchain": ^1.1.0-next.62
-    "@tevm/common": ^1.1.0-next.62
-    "@tevm/logger": ^1.1.0-next.60
-    "@tevm/predeploys": ^1.1.0-next.62
-    "@tevm/utils": ^1.1.0-next.60
-  checksum: c3568747232aeb1ccf67f27e847dda17898293255ec4eb4d72d8b80a7a791a2c907ad72ea3c41e70638f4a9e82fd1dfd48edb4f96b37e046888bbe82ed3e0fde
+    "@tevm/blockchain": ^1.1.0-next.72
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/logger": ^1.1.0-next.72
+    "@tevm/predeploys": ^1.1.0-next.72
+    "@tevm/state": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: c6ea6636236c2581b1895d249dc6fe64fac34c6712f977e5ff007d5823a5b1cb4fbc17cf86e1a2d7e1d35d3c9c9ca10abab6b9987dc0fa3e5aad78a770e3a5a9
   languageName: node
   linkType: hard
 
-"@tevm/http-client@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/http-client@npm:1.1.0-next.62"
+"@tevm/http-client@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/http-client@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/contract": ^1.1.0-next.62
-    "@tevm/viem": ^1.1.0-next.60
-    viem: ^2.12.0
-  checksum: 389f53a39642da60cc769753a4a3fdf34d9ae73e8b61024b7d932a82927edec7a40bb024ab0add76ef4c4047050f4e5cd1d7441375f4e9f941365f45c660bbea
+    "@tevm/contract": ^1.1.0-next.72
+    "@tevm/memory-client": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+    "@tevm/viem": ^1.1.0-next.73
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: cece067745f5dba7b0d498505a1665a45e9a78dfe2b26ca40b7b422b607c5e5ccb854f2348ad89b9ed41d01712ed73c30bde978bcb852a5cdc31c11f0b79615e
   languageName: node
   linkType: hard
 
-"@tevm/jsonrpc@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/jsonrpc@npm:1.1.0-next.60"
+"@tevm/jsonrpc@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/jsonrpc@npm:1.1.0-next.72"
   dependencies:
-    "@ponder/utils": ^0.1.5
-    viem: ^2.10.3
-  checksum: c587be0613c54aaaec0db17181be8073ae3a2aee67f2ba796a87df57be97f0f049eebb21eab87b9eb684357a2f6ff879a4b3781c8efaae69c88828e834bc3764
+    "@ponder/utils": ^0.1.6
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: 0b5a210d612591c7cfec0fdeffed35592cf1a212cf77f648390b70169810b4c2a0d0d7dc2ab6dddf31b74dc8fd48a6050e034cb7a03e676e6355ee5c2565c411
   languageName: node
   linkType: hard
 
-"@tevm/logger@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/logger@npm:1.1.0-next.60"
+"@tevm/logger@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/logger@npm:1.1.0-next.72"
   dependencies:
-    pino: ^8.20.0
-  checksum: 54d62182ec14a95820791c608909088db4a38571263a4214922e68e86276fe0a43ba1a29e2ddf24d04a3bf373683e71edd3824f2d178446642284cd6289691de
+    pino: ^9.1.0
+  checksum: 1082f43fbffe8a11df51b3caf4f4fd92017649862935019145ba2d30b5faea3cc5390841701ff4ef0536f97be6b2314a5e02019fe07294a88fd70e5bc04d1a8c
   languageName: node
   linkType: hard
 
-"@tevm/memory-client@npm:^1.1.0-next.63":
-  version: 1.1.0-next.68
-  resolution: "@tevm/memory-client@npm:1.1.0-next.68"
+"@tevm/memory-client@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/memory-client@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/base-client": ^1.1.0-next.68
-    "@tevm/common": ^1.1.0-next.62
-    "@tevm/contract": ^1.1.0-next.62
-    "@tevm/decorators": ^1.1.0-next.68
-    "@tevm/evm": ^1.1.0-next.62
-    "@tevm/utils": ^1.1.0-next.60
-    viem: ^2.12.0
-  checksum: 78e47382e70699bd61204280205daa7a49ca8bc062c88b81acd40ac4f8ef948ca7a2dd288213c25e3a650b2cf4ae6c34f5c2fbfb8f77fdf62e74d75c8b5eda9d
+    "@tevm/base-client": ^1.1.0-next.73
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/contract": ^1.1.0-next.72
+    "@tevm/decorators": ^1.1.0-next.73
+    "@tevm/evm": ^1.1.0-next.73
+    "@tevm/predeploys": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+    kzg-wasm: ^0.4.0
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: 9d6cf2f8c8ae915305bc241a86658b9ced96989cf2937e2242bffe8910e7f2c97afa1939b438b2ed32b03583bb3b92d7611c0160553b844c8951c4106f12b1bd
   languageName: node
   linkType: hard
 
-"@tevm/precompiles@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/precompiles@npm:1.1.0-next.62"
+"@tevm/precompiles@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/precompiles@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/contract": ^1.1.0-next.62
-    "@tevm/utils": ^1.1.0-next.60
-  checksum: cf13bca036a204c8ebdd267b9ccbbee100f259ec6b99d9a282a3766134a395462842a7ee4eac31fc488454192c35466a8603906657b28e4b759757f9af5235b3
+    "@tevm/contract": ^1.1.0-next.72
+    "@tevm/evm": ^1.1.0-next.73
+    "@tevm/memory-client": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: 37ce9d5fe5b235dd884f2b1d91d2f94f9bb2c982c5bece7f8c3b184e8a693fd473c98ca9bb99aa0e19ea79b45257351e2a769394ac21869e6459bd5361e5b217
   languageName: node
   linkType: hard
 
-"@tevm/predeploys@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/predeploys@npm:1.1.0-next.62"
+"@tevm/predeploys@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/predeploys@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/contract": ^1.1.0-next.62
-    "@tevm/utils": ^1.1.0-next.60
-  checksum: 480561bfecb960c5297cbb9f3fd4352c50127d1d347fce640665e803e8acf256d60933020070ea1c32a53862fed00896b48b3ccdf16285b7bb99ff393f991cb0
+    "@tevm/contract": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: 30788f6684831e5405d335de4711f15e444bbcfa0c04c104264e270abdd778753f5bcca1ac1c138734e2173f96054aeff94283bcc59c961c45e732bea157e6fc
   languageName: node
   linkType: hard
 
-"@tevm/procedures-types@npm:1.1.0-next.64, @tevm/procedures-types@npm:^1.1.0-next.60, @tevm/procedures-types@npm:^1.1.0-next.64":
-  version: 1.1.0-next.64
-  resolution: "@tevm/procedures-types@npm:1.1.0-next.64"
+"@tevm/procedures-types@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/procedures-types@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/utils": ^1.1.0-next.60
-  checksum: 0afbc4c00d363006d9bd86c013ff34b03fa3c9151e6585a19d5c915a78c87e36f740202f05f9072bb3406818406b49dde094da52c3b998f3926fa575a07a1e03
+    "@tevm/errors": ^1.1.0-next.72
+    "@tevm/jsonrpc": ^1.1.0-next.72
+    "@tevm/state": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: 41816921c135936b4f2bd3bfd58b4157ef24df65b8231406c552f75f57705a97cfbe95a130a8977b043df37bda1b667a71c435f530226fd5a83e80f58e4a73c0
   languageName: node
   linkType: hard
 
-"@tevm/procedures@npm:^1.1.0-next.68":
-  version: 1.1.0-next.68
-  resolution: "@tevm/procedures@npm:1.1.0-next.68"
+"@tevm/procedures@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/procedures@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/actions": ^1.1.0-next.68
-    "@tevm/block": ^1.1.0-next.62
-    "@tevm/tx": 1.1.0-next.60
-  checksum: b79ad8c9fb5b6aac073b9afa14d3841133a8418e0d5143d58ca164dcb840f97480f59c31776326aca755a0ba7bb4375f9727f2709c810192333b7ba111483dcf
+    "@tevm/actions": ^1.1.0-next.73
+    "@tevm/base-client": ^1.1.0-next.73
+    "@tevm/block": ^1.1.0-next.72
+    "@tevm/errors": ^1.1.0-next.72
+    "@tevm/evm": ^1.1.0-next.73
+    "@tevm/jsonrpc": ^1.1.0-next.72
+    "@tevm/state": ^1.1.0-next.73
+    "@tevm/tx": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+    "@tevm/vm": ^1.1.0-next.73
+  checksum: 3e235256e19c371faeb0dd7e8de9e37592c594ccc6513d1b0ba9a63eda5d4556db74362d1ba0d2c40164168a7728abb6214dcf763c1d80686b30786aeb3d1677
   languageName: node
   linkType: hard
 
-"@tevm/receipt-manager@npm:1.1.0-next.62, @tevm/receipt-manager@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/receipt-manager@npm:1.1.0-next.62"
+"@tevm/receipt-manager@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/receipt-manager@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/block": ^1.1.0-next.62
-    "@tevm/blockchain": ^1.1.0-next.62
-    "@tevm/rlp": ^1.1.0-next.60
-    "@tevm/tx": ^1.1.0-next.60
-  checksum: 386f0c68e208ec6be14cb330449e896e42de3392592f90e5f7167cd74e1e18255e8e3c86160a3ecda7b0ffa88fccb935df393aee84ab303ad801a3bb5699ec68
+    "@tevm/block": ^1.1.0-next.72
+    "@tevm/blockchain": ^1.1.0-next.72
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/rlp": ^1.1.0-next.72
+    "@tevm/tx": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: cb69c0ce1a6ad175c5bfe4947bf1161a1ca75f0c5b1ca7d5921b90b35e964717d5750609ae9fdf893d83394620e87f6fa248f91692fa7d6c1c0059366995ef7e
   languageName: node
   linkType: hard
 
-"@tevm/resolutions@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/resolutions@npm:1.1.0-next.60"
+"@tevm/resolutions@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/resolutions@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/tsconfig": ^1.1.0-next.60
-    "@tevm/tsupconfig": ^1.1.0-next.60
+    "@tevm/tsconfig": ^1.1.0-next.72
+    "@tevm/tsupconfig": ^1.1.0-next.72
     "@types/node": ^20.8.9
     effect: 2.0.0-next.54
     resolve: ^1.22.8
-  checksum: 4f564dfdbd6f4254327cf5f5e8b79e83f8d49cc196e36b799907a5bc4b2c474906ba87cb486693ed679999fa10ba0847afd7d5400a1d6948b8fd73ebe8fe2e00
+  checksum: 5280fafabcf14d19f5f30a21422a374e6a91c976dc6488a52d5b2b5d1f2995d3066ac53539f3c09c0705c7b44f401cc10eb5691652069c67484099eab97239a3
   languageName: node
   linkType: hard
 
-"@tevm/rlp@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/rlp@npm:1.1.0-next.60"
+"@tevm/rlp@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/rlp@npm:1.1.0-next.72"
   dependencies:
     "@ethereumjs/rlp": ^5.0.2
-  checksum: 91427093927bd428cc9e2fee811c63af5a3086c9a5e06e1c1ad96b731a9142ae2de78704517fcd0db38ff08fdc096e7d6c66b99f5c16b28c9cf8f1264bb63e0e
+  checksum: a7d36d270b5a5bd47690dad9718f8a09c413c3dd83b165e2708ea4d002a336f75745e8ded4f1d45d3fd8fa98ac62a65b12250caf9013da8a3785644323d9557d
   languageName: node
   linkType: hard
 
-"@tevm/runtime@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/runtime@npm:1.1.0-next.60"
+"@tevm/runtime@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/runtime@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/tsconfig": ^1.1.0-next.60
-    "@tevm/tsupconfig": ^1.1.0-next.60
+    "@tevm/tsconfig": ^1.1.0-next.72
+    "@tevm/tsupconfig": ^1.1.0-next.72
     effect: 2.0.0-next.54
-  checksum: 31a17fd7d0ab52318baee58876a9dfede681fda7691feafe5dac248544165ee8dd35ac0898c37bfc6728ce719b45e4b80b6ea8a13f9225056afd5b6253de5165
+  checksum: eec04f30832903de61ca9a957a498afb0a41eb9e5592f3d1e16a4c90c562ac0d3d20ee698aacbea4d182c6e20f9c218401f463a7a95d22485b74b11b0760fdc0
   languageName: node
   linkType: hard
 
-"@tevm/server@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/server@npm:1.1.0-next.60"
+"@tevm/server@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/server@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/errors": ^1.1.0-next.60
-    "@tevm/utils": ^1.1.0-next.60
-    "@tevm/zod": ^1.1.0-next.60
-  checksum: 98ffb1deae522ef3ee9b1d201a4cbd387422e1355def6c65c33f8c6a0f8ff134aa84351c01075b5388048a0ec23e2fabc1da946199a3188136b1d083a7523ffe
+    "@tevm/errors": ^1.1.0-next.72
+    "@tevm/jsonrpc": ^1.1.0-next.72
+    "@tevm/memory-client": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+    "@tevm/zod": ^1.1.0-next.72
+  checksum: 11c8ef272a5c726838f5bd4881ec5a358302ee65f654a7736be557b023401575be562ca20038ebd0985d893f119cea095c1c0cf399b9eb2ed1b89a715b9456c6
   languageName: node
   linkType: hard
 
-"@tevm/solc@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/solc@npm:1.1.0-next.60"
+"@tevm/solc@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/solc@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/tsconfig": ^1.1.0-next.60
-    "@tevm/tsupconfig": ^1.1.0-next.60
-  checksum: 8b998d04ada9d265854fa08757191da726cdea21e3e85eec0ab0df4e3ec925fae1ec9cbd1d05f594156c8c340fc295d625c17072af88d3ea24087a7ff0c88043
+    "@tevm/tsconfig": ^1.1.0-next.72
+    "@tevm/tsupconfig": ^1.1.0-next.72
+  checksum: bb686596ebf543ee6a11cc80bd2137938aac5cb506796f107718fc26db2ad8f2705ee29ff270597b89322ae75ee9afbf2231691710735e8a9de190d8d273aa93
   languageName: node
   linkType: hard
 
-"@tevm/state@npm:^1.1.0-next.63, @tevm/state@npm:^1.1.0-next.66":
-  version: 1.1.0-next.66
-  resolution: "@tevm/state@npm:1.1.0-next.66"
+"@tevm/state@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/state@npm:1.1.0-next.73"
   dependencies:
     "@ethereumjs/statemanager": ^2.3.0
-    "@tevm/common": ^1.1.0-next.62
-    "@tevm/logger": ^1.1.0-next.60
-    "@tevm/test-utils": ^1.1.0-next.66
-    "@tevm/utils": ^1.1.0-next.60
-    ethereum-cryptography: ^2.1.3
-    viem: ^2.9.28
-  checksum: 96302290dccbc31672454208e9af6082c3199d8fb826b67adab880c50c62d94c22bca03342588e5dcdaa0430c414b8752aaa5adb18764fddd7b8fef086059592
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/logger": ^1.1.0-next.72
+    "@tevm/test-utils": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+    ethereum-cryptography: ^2.2.0
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: fc2aa460a54cfea6aa4892530521f45edad1906892ab6ed2cb338bd3dc7b9c18538ecefdbe2c767c8e383ebaac6cd75b33bde3aa7db90c7cb1ddc05a2d4ac25e
   languageName: node
   linkType: hard
 
-"@tevm/sync-storage-persister@npm:^1.1.0-next.63, @tevm/sync-storage-persister@npm:^1.1.0-next.66":
-  version: 1.1.0-next.66
-  resolution: "@tevm/sync-storage-persister@npm:1.1.0-next.66"
+"@tevm/sync-storage-persister@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/sync-storage-persister@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/state": ^1.1.0-next.66
-  checksum: b094dec495b7d4790fec22909240004989f85b7c00b82e60cb21ce6d0d107ba0999342ff9ba9de1eab700dab9d6ab800a0ea8383f7bcfe3dbf601215237313cb
+    "@tevm/state": ^1.1.0-next.73
+  checksum: 62c83ecbab9ff68c4e449bf5d11bbcd7a645ea7aa985d69d84aa7f19dc914ba44e4bd80bff9903a1aa2297081aa2aa72841d340df2a6c407a6425723005b5415
   languageName: node
   linkType: hard
 
-"@tevm/test-utils@npm:^1.1.0-next.66":
-  version: 1.1.0-next.66
-  resolution: "@tevm/test-utils@npm:1.1.0-next.66"
+"@tevm/test-utils@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/test-utils@npm:1.1.0-next.73"
   dependencies:
-    "@ponder/utils": ^0.1.5
-    "@tevm/contract": 1.1.0-next.62
-    "@tevm/esbuild-plugin": 1.1.0-next.60
-    "@tevm/ts-plugin": 1.1.0-next.66
-    viem: ^2.12.0
-  checksum: f78d0b7e9c87cf06ab5ab57c7f4701a60e1b6167109f94f2b012b367c63bab7fba06f1c3322c8ade1e73bb453af299d04e940c292243a186f98fe3b87808eaf7
+    "@openzeppelin/contracts": ^5.0.2
+    "@ponder/utils": ^0.1.6
+    "@tevm/contract": ^1.1.0-next.72
+    "@tevm/esbuild-plugin": ^1.1.0-next.73
+    "@tevm/ts-plugin": ^1.1.0-next.72
+    viem: ^2.13.7
+  checksum: 96103e31b716184e70eca3305f797e8dd85cb9d378f573eab5454d51216fede07861a8a71a000b8446de5237f0910852eda9b24d1744ae2338b63720d972ee75
   languageName: node
   linkType: hard
 
-"@tevm/trie@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/trie@npm:1.1.0-next.60"
+"@tevm/trie@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/trie@npm:1.1.0-next.72"
   dependencies:
     "@ethereumjs/trie": 6.2.0
-  checksum: 9b6f893cd25e0b4b873ad56544b10b28f60ef86bd2a7c1891ff4a23fa3b2649fbbc5ba3f1a655a760f593859ad270a9c0e53be99c69a44b18927a5fa248ffc85
+  checksum: c95b9a6dd1a685846d2e5ff5e88a97097f23b48c9042432b80c7dfbce7b7ee1f1d35777edf9ba30c0b1435b26c90ef6b3a69fc4bb901ba4002087accd216ba88
   languageName: node
   linkType: hard
 
-"@tevm/ts-plugin@npm:1.1.0-next.66":
-  version: 1.1.0-next.66
-  resolution: "@tevm/ts-plugin@npm:1.1.0-next.66"
+"@tevm/ts-plugin@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/ts-plugin@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/base-bundler": ^1.1.0-next.60
-    "@tevm/bundler-cache": ^1.1.0-next.60
+    "@tevm/base-bundler": ^1.1.0-next.72
+    "@tevm/bundler-cache": ^1.1.0-next.72
     effect: 2.0.0-next.54
     glob: ^10.3.10
     solc: 0.8.23-fixed
@@ -3129,113 +3220,121 @@ __metadata:
     typescript: ">=5.0.0"
   bin:
     tevm-gen: dist/bin/tevm-gen.js
-  checksum: 1c506542d19ed1d16ca2c7895d6087d94f8f9dc686f79e1dbe5d00bb3d3d84808f0244673ff258e2386c7c03f882bbb71c381e7c1ffdd0a7ef745a8f69c7f368
+  checksum: 9743f792ad4331ea2a4fa15ade4fce3ed3e27641590edbc0ce8c72b16c57f8752fb5787eee906a9cdf9f87775c8feebfac08b0b65e4cd698610e116ba79b9230
   languageName: node
   linkType: hard
 
-"@tevm/tsconfig@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/tsconfig@npm:1.1.0-next.60"
-  checksum: 3b2199574fa61be96b7c67f28a707e48c72278cce08249c4c9a5d33526072c8afd1ebdd608ddd4b69e21c9290b7dae24bfa5f4347005d25aa3e649f461c0f021
+"@tevm/tsconfig@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/tsconfig@npm:1.1.0-next.72"
+  checksum: 3c81966dda71bfc5f17a0c5c011eb40cb9395c2514aad0b959f9920bfde672345286af1dbdde046fa5c84154b1b630f88203e252938b391aaaa0e3ad8d0b0ba7
   languageName: node
   linkType: hard
 
-"@tevm/tsupconfig@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/tsupconfig@npm:1.1.0-next.60"
+"@tevm/tsupconfig@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/tsupconfig@npm:1.1.0-next.72"
   dependencies:
-    "@tevm/tsconfig": ^1.1.0-next.60
-    "@types/node": ^20.10.6
-  checksum: b89cc3472da6ca139aef834afac276f192932c00a5e39c4d3ebd15e2844c39410542503836870ff15b98ea6018f667d91f779d09d666254b3cef6cb9229d4bed
+    "@tevm/tsconfig": ^1.1.0-next.72
+    "@types/node": ^20.14.2
+  checksum: ca63025e93a8ed877ec9657ee07b02fe9416b4cf9318fab3dc1b267b60df57b0183fa40fffde7ef0f4e39aff71f84293c244cd933a5dcf7593b1a4981b6b600d
   languageName: node
   linkType: hard
 
-"@tevm/tx@npm:1.1.0-next.60, @tevm/tx@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/tx@npm:1.1.0-next.60"
+"@tevm/tx@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/tx@npm:1.1.0-next.72"
   dependencies:
     "@ethereumjs/tx": ^5.3.0
-    "@tevm/utils": 1.1.0-next.60
-  checksum: 1a38807dfb8050c2cf5cc8c55ecdc9b39ac523d8eaad16229273f94b913f1d4f1e17371417bc0e14c2d14683cdef62ce4f7e49390cfbc68057b9992f68fda082
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: eb653ec7b96a5deb2a0b30abcceb10d8da0d2c4e9458a5d1dd24e861489ca9c08110cacdd3708f939949c195aa655376043faf8a9140b23a9162388ca7af7f19
   languageName: node
   linkType: hard
 
-"@tevm/txpool@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/txpool@npm:1.1.0-next.62"
+"@tevm/txpool@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/txpool@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/block": ^1.1.0-next.62
-    "@tevm/tx": ^1.1.0-next.60
-    "@tevm/utils": ^1.1.0-next.60
+    "@tevm/block": ^1.1.0-next.72
+    "@tevm/tx": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+    "@tevm/vm": ^1.1.0-next.73
     qheap: ^1.4.0
-  checksum: 24ad84ca3458175339e061a2864065e6ff1f88c079e4e1a7a2bc243405caa19f89eccb74304f87fdfd56040d9dfb12602af9c1a5f6601030ce7aa56273b701e5
+  checksum: 5ffcd7b5e7b42584c48c414dab5c644a1e665e762fd8b9741c053c20b9ff481d22dc39cfbc9a591ed35d2bb3b8f6167e76a2065b3e7c766b777552144c4de864
   languageName: node
   linkType: hard
 
-"@tevm/unplugin@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/unplugin@npm:1.1.0-next.60"
+"@tevm/unplugin@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/unplugin@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/base-bundler": ^1.1.0-next.60
-    "@tevm/bundler-cache": ^1.1.0-next.60
-    "@tevm/config": ^1.1.0-next.60
-    "@tevm/solc": ^1.1.0-next.60
+    "@tevm/base-bundler": ^1.1.0-next.72
+    "@tevm/bundler-cache": ^1.1.0-next.72
+    "@tevm/config": ^1.1.0-next.72
+    "@tevm/solc": ^1.1.0-next.72
     effect: 2.0.0-next.54
     solc: 0.8.22
     unplugin: ^1.5.0
     zod: ^3.22.4
-  checksum: b46dca9edf708fa2d8a59ffaef09f8f1e3714afbee64d3c8a796662c725628e4299dbf87b5b000f731a804f38cd47d923cdaff32bf6aec8914d45b1ea759c30a
+  checksum: f42b4376febf87bcd1b9364febe57da29f860af8079983d30b707344352b3f6d64d203e804eb9800424bb9c530fbf46313aab94a0b584ebc6c6e38109deeddcc
   languageName: node
   linkType: hard
 
-"@tevm/utils@npm:1.1.0-next.60, @tevm/utils@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/utils@npm:1.1.0-next.60"
+"@tevm/utils@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/utils@npm:1.1.0-next.72"
   dependencies:
     "@ethereumjs/evm": ^3.0.0
     "@ethereumjs/util": ^9.0.3
     abitype: ^1.0.2
-    viem: ^2.8.18
-  checksum: a1c007f90339398fe40b8fc7415d47313c32c41607023ca7da09242c94774ec4ba7b438e8b11da25a672327907a8978ef2a0f2fa69efb668c9b7ffae93ce61ca
-  languageName: node
-  linkType: hard
-
-"@tevm/viem@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/viem@npm:1.1.0-next.60"
-  dependencies:
-    "@tevm/jsonrpc": ^1.1.0-next.60
   peerDependencies:
-    viem: 2.x.x
-  checksum: 4fbf76e32b540aa9c9053495e5500d614c154fa9b43d6ccad8604aac9cbff6d72fa4f284f662a924c7e339486ea4a119b3ec5cfcaefbda315778b9cdf12693a5
+    viem: ^2.13.6
+  checksum: 681c7b4e76349beeca8f183017bcf53e2690bfbc4f771a55788d786ff2c906c53872f615273aa083a71c32a4d3f30e46713c2e31dbbd683a3e6602020bd2632a
   languageName: node
   linkType: hard
 
-"@tevm/vm@npm:^1.1.0-next.62":
-  version: 1.1.0-next.62
-  resolution: "@tevm/vm@npm:1.1.0-next.62"
+"@tevm/viem@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/viem@npm:1.1.0-next.73"
+  dependencies:
+    "@tevm/base-client": ^1.1.0-next.73
+    "@tevm/decorators": ^1.1.0-next.73
+    "@tevm/jsonrpc": ^1.1.0-next.72
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: 6a517c34dd331f8af5d453a72ee9d640894f3bbff8c0b262172a9feda1658e712c225deff2f613fbe9a57b93c210521b17b70b07b9404f1e4d7916a13f4488df
+  languageName: node
+  linkType: hard
+
+"@tevm/vm@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "@tevm/vm@npm:1.1.0-next.73"
   dependencies:
     "@ethereumjs/vm": ^8.0.0
-    "@tevm/block": ^1.1.0-next.62
-    "@tevm/blockchain": ^1.1.0-next.62
-    "@tevm/common": ^1.1.0-next.62
-    "@tevm/evm": ^1.1.0-next.62
-    "@tevm/rlp": ^1.1.0-next.60
-    "@tevm/trie": ^1.1.0-next.60
-    "@tevm/tx": ^1.1.0-next.60
-    "@tevm/utils": ^1.1.0-next.60
-  checksum: 9d2738ce1f8aa04bea511ca588c482e8f3da0b23ca2ad7bcc9828f048dd5881a859e1c90bf65276a81b7f6b066252d87ea840916d90eec659e8f7670b6979124
+    "@tevm/block": ^1.1.0-next.72
+    "@tevm/blockchain": ^1.1.0-next.72
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/evm": ^1.1.0-next.73
+    "@tevm/rlp": ^1.1.0-next.72
+    "@tevm/state": ^1.1.0-next.73
+    "@tevm/trie": ^1.1.0-next.72
+    "@tevm/tx": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+  checksum: 4da825b30d93e92c62b0c583bfeeb0c3c2f5b32bb86183882ccedb72192cea400a7a498b2eb8078d575596f8851c94bbf8b59b2ee5413262ed424220dbdae4a5
   languageName: node
   linkType: hard
 
-"@tevm/zod@npm:^1.1.0-next.60":
-  version: 1.1.0-next.60
-  resolution: "@tevm/zod@npm:1.1.0-next.60"
+"@tevm/zod@npm:^1.1.0-next.72":
+  version: 1.1.0-next.72
+  resolution: "@tevm/zod@npm:1.1.0-next.72"
   dependencies:
-    abitype: ^1.0.0
-    viem: ^2.7.16
-    zod: ^3.22.4
-  checksum: 73408d60f8a7033cd074a10bfe465bc919428e169176d38304c305576034c188834e40047b8e66fcc725f9ba280a03554425f656f75830f6e1ca7f19fc77ee67
+    "@tevm/errors": ^1.1.0-next.72
+    "@tevm/utils": ^1.1.0-next.72
+    abitype: ^1.0.2
+    zod: ^3.23.8
+  peerDependencies:
+    viem: ^2.13.6
+  checksum: 1e10e2535ced58e73c5427710fa9a21be56b9d258f6de450b5145ba1ed7f7559535295cf6d2ae6674f303b80229399e3dbb1d70539d37ac2fe9d5b5172c70745
   languageName: node
   linkType: hard
 
@@ -3531,7 +3630,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.10.6, @types/node@npm:^20.8.9":
+"@types/node@npm:^20.14.2":
+  version: 20.14.2
+  resolution: "@types/node@npm:20.14.2"
+  dependencies:
+    undici-types: ~5.26.4
+  checksum: 265362479b8f3b50fcd1e3f9e9af6121feb01a478dff0335ae67cccc3babfe45d0f12209d3d350595eebd7e67471762697b877c380513f8e5d27a238fa50c805
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.8.9":
   version: 20.14.1
   resolution: "@types/node@npm:20.14.1"
   dependencies:
@@ -3659,6 +3767,13 @@ __metadata:
   version: 2.0.4
   resolution: "@types/trusted-types@npm:2.0.4"
   checksum: 5256c4576cd1c90d33ddd9cc9cbd4f202b39c98cbe8b7f74963298f9eb2159c285ea5c25a6181b4c594d8d75641765bff85d72c2d251ad076e6529ce0eeedd1c
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^9":
+  version: 9.0.8
+  resolution: "@types/uuid@npm:9.0.8"
+  checksum: b8c60b7ba8250356b5088302583d1704a4e1a13558d143c549c408bf8920535602ffc12394ede77f8a8083511b023704bc66d1345792714002bfa261b17c5275
   languageName: node
   linkType: hard
 
@@ -4591,7 +4706,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"abitype@npm:^1.0.0, abitype@npm:^1.0.2":
+"abitype@npm:^1.0.2":
   version: 1.0.2
   resolution: "abitype@npm:1.0.2"
   peerDependencies:
@@ -7949,6 +8064,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ethereum-cryptography@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "ethereum-cryptography@npm:2.2.0"
+  dependencies:
+    "@noble/curves": 1.4.0
+    "@noble/hashes": 1.4.0
+    "@scure/bip32": 1.4.0
+    "@scure/bip39": 1.3.0
+  checksum: 529d05a47fe0ff86ab36022a286c3a280e09d386fc92ff183aa4b095e97d190dd875022a004898686a798bac56e73601dd91356298edc56e5eeded7846f8ec12
+  languageName: node
+  linkType: hard
+
 "ethereumjs-abi@npm:^0.6.8":
   version: 0.6.8
   resolution: "ethereumjs-abi@npm:0.6.8"
@@ -10631,6 +10758,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kzg-wasm@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "kzg-wasm@npm:0.4.0"
+  checksum: bfc929afd5d7b5ab4a18b400e078063c872f4b8f3b660238495efa3f04ac73c0e9bc5f3e8f277713b3b74bd724f51916aa69123e8210d4b90dbadd39d589d596
+  languageName: node
+  linkType: hard
+
 "language-subtag-registry@npm:~0.3.2":
   version: 0.3.22
   resolution: "language-subtag-registry@npm:0.3.22"
@@ -12604,10 +12738,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino-std-serializers@npm:^6.0.0":
-  version: 6.2.2
-  resolution: "pino-std-serializers@npm:6.2.2"
-  checksum: aeb0662edc46ec926de9961ed4780a4f0586bb7c37d212cd469c069639e7816887a62c5093bc93f260a4e0900322f44fc8ab1343b5a9fa2864a888acccdb22a4
+"pino-std-serializers@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "pino-std-serializers@npm:7.0.0"
+  checksum: 08cd1d7b7adc4cfca39e42c2d5fd21bcf4513153734e7b8fa278b0e9e9f62df78c4c202886343fe882a462539c931cb8110b661775ad7f7217c96856795b5a86
   languageName: node
   linkType: hard
 
@@ -12632,24 +12766,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino@npm:^8.20.0":
-  version: 8.21.0
-  resolution: "pino@npm:8.21.0"
+"pino@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "pino@npm:9.1.0"
   dependencies:
     atomic-sleep: ^1.0.0
     fast-redact: ^3.1.1
     on-exit-leak-free: ^2.1.0
     pino-abstract-transport: ^1.2.0
-    pino-std-serializers: ^6.0.0
+    pino-std-serializers: ^7.0.0
     process-warning: ^3.0.0
     quick-format-unescaped: ^4.0.3
     real-require: ^0.2.0
     safe-stable-stringify: ^2.3.1
-    sonic-boom: ^3.7.0
-    thread-stream: ^2.6.0
+    sonic-boom: ^4.0.1
+    thread-stream: ^3.0.0
   bin:
     pino: bin.js
-  checksum: d895c37cfcb7ade33ad7ac4ca54c0497ab719ec726e42b7c7b9697e07572a09a7c7de18d751440769c3ea5ecbac2075fdac720cf182720a4764defe3de8a1411
+  checksum: 6bece8583b22709dd5e35cd9ec9e885d0cfdb1fafa77f29440671f00725359d8f9ed3aea5ff1ff8cee985a828e6b71655eb6dfb8548f48f6a76f207b3eff1f35
   languageName: node
   linkType: hard
 
@@ -14203,6 +14337,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"solc@npm:^0.8.26":
+  version: 0.8.26
+  resolution: "solc@npm:0.8.26"
+  dependencies:
+    command-exists: ^1.2.8
+    commander: ^8.1.0
+    follow-redirects: ^1.12.1
+    js-sha3: 0.8.0
+    memorystream: ^0.3.1
+    semver: ^5.5.0
+    tmp: 0.0.33
+  bin:
+    solcjs: solc.js
+  checksum: e3eaeac76e60676377b357af8f3919d4c8c6a74b74112b49279fe8c74a3dfa1de8afe4788689fc307453bde336edc8572988d2cf9e909f84d870420eb640400c
+  languageName: node
+  linkType: hard
+
 "solidity-ast@npm:^0.4.52":
   version: 0.4.56
   resolution: "solidity-ast@npm:0.4.56"
@@ -14253,12 +14404,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sonic-boom@npm:^3.7.0":
-  version: 3.8.1
-  resolution: "sonic-boom@npm:3.8.1"
+"sonic-boom@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "sonic-boom@npm:4.0.1"
   dependencies:
     atomic-sleep: ^1.0.0
-  checksum: 79c90d7a2f928489fd3d4b68d8f8d747a426ca6ccf83c3b102b36f899d4524463dd310982ab7ab6d6bcfd34b7c7c281ad25e495ad71fbff8fd6fa86d6273fc6b
+  checksum: 451b0f09bc0a0abfa6bfed0e2d7d36a6fa245be8a444a7ef1e3c8abb006e9994cb7530b1da39c8aee9033598d1ce187e244a6194c92a81790a2e2633c60cd63d
   languageName: node
   linkType: hard
 
@@ -14898,29 +15049,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tevm@npm:1.1.0-next.63":
-  version: 1.1.0-next.63
-  resolution: "tevm@npm:1.1.0-next.63"
+"tevm@npm:^1.1.0-next.73":
+  version: 1.1.0-next.73
+  resolution: "tevm@npm:1.1.0-next.73"
   dependencies:
-    "@tevm/actions-types": ^1.1.0-next.60
-    "@tevm/base-client": ^1.1.0-next.63
-    "@tevm/client-types": ^1.1.0-next.60
-    "@tevm/common": ^1.1.0-next.62
-    "@tevm/contract": ^1.1.0-next.62
-    "@tevm/decorators": ^1.1.0-next.62
-    "@tevm/errors": ^1.1.0-next.60
-    "@tevm/http-client": ^1.1.0-next.62
-    "@tevm/jsonrpc": ^1.1.0-next.60
-    "@tevm/memory-client": ^1.1.0-next.63
-    "@tevm/precompiles": ^1.1.0-next.62
-    "@tevm/predeploys": ^1.1.0-next.62
-    "@tevm/procedures-types": ^1.1.0-next.60
-    "@tevm/server": ^1.1.0-next.60
-    "@tevm/state": ^1.1.0-next.63
-    "@tevm/sync-storage-persister": ^1.1.0-next.63
-    "@tevm/utils": ^1.1.0-next.60
-    "@tevm/viem": ^1.1.0-next.60
-  checksum: 7eefb2e4bbd753c6b868c10c9e7da4f29e1088c2f058bd269058b1aff17e2ac1421c425c952d57a73f3c1a2acb621c9651c7ce6b4e83e69a3809b02e9f4f7dc1
+    "@tevm/actions-types": ^1.1.0-next.72
+    "@tevm/base-client": ^1.1.0-next.73
+    "@tevm/client-types": ^1.1.0-next.72
+    "@tevm/common": ^1.1.0-next.72
+    "@tevm/contract": ^1.1.0-next.72
+    "@tevm/decorators": ^1.1.0-next.73
+    "@tevm/errors": ^1.1.0-next.72
+    "@tevm/http-client": ^1.1.0-next.73
+    "@tevm/jsonrpc": ^1.1.0-next.72
+    "@tevm/memory-client": ^1.1.0-next.73
+    "@tevm/precompiles": ^1.1.0-next.73
+    "@tevm/predeploys": ^1.1.0-next.72
+    "@tevm/procedures-types": ^1.1.0-next.73
+    "@tevm/server": ^1.1.0-next.73
+    "@tevm/state": ^1.1.0-next.73
+    "@tevm/sync-storage-persister": ^1.1.0-next.73
+    "@tevm/utils": ^1.1.0-next.72
+    "@tevm/viem": ^1.1.0-next.73
+  checksum: 77f750c29eda2984b425d12dab0bfccd581f784630d7905117ad95ee6b70a776bbb0ec14555168ee6e1d39b3fef9fb01c27264e8a682d6aec1dce81948b07a77
   languageName: node
   linkType: hard
 
@@ -14977,12 +15128,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"thread-stream@npm:^2.6.0":
-  version: 2.7.0
-  resolution: "thread-stream@npm:2.7.0"
+"thread-stream@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "thread-stream@npm:3.0.2"
   dependencies:
     real-require: ^0.2.0
-  checksum: 75ab019cda628344c7779e5f5a88f7759764efd29d320327ad2e6c2622778b5f1c43a3966d76a9ee5744086d61c680b413548f5521030f9e9055487684436165
+  checksum: d2062938e12a5d6372eafc5096de4583e8bc5b1f28e165a6eb0ff5207cc721d23db1233518f2a53383753af523f478f5881b41b0cd84fb28b8530e121ebd3359
   languageName: node
   linkType: hard
 
@@ -16031,9 +16182,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"viem@npm:^2.10.3, viem@npm:^2.12.0, viem@npm:^2.7.16, viem@npm:^2.8.18, viem@npm:^2.9.28":
-  version: 2.13.5
-  resolution: "viem@npm:2.13.5"
+"viem@npm:^2.13.7":
+  version: 2.13.7
+  resolution: "viem@npm:2.13.7"
   dependencies:
     "@adraffy/ens-normalize": 1.10.0
     "@noble/curves": 1.2.0
@@ -16048,7 +16199,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 7d83db07e62940dfb27494cce7bfbb9723b607b269c8c1fbcc5bf61e92cc9f9ef27955f071f341d3d03c3a723efafa047759c7e379ac3c1fad590605b2bf380f
+  checksum: bf324aec96068514b6fddb7e9d8f3e62f2aab5e7240feeda9c33c79923cd1e1736568646959796ab58b2dfca707091e610ccf19fac8d8324d5cc55199c876ee8
   languageName: node
   linkType: hard
 
@@ -16681,7 +16832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.22.4":
+"zod@npm:^3.22.4, zod@npm:^3.23.8":
   version: 3.23.8
   resolution: "zod@npm:3.23.8"
   checksum: 15949ff82118f59c893dacd9d3c766d02b6fa2e71cf474d5aa888570c469dbf5446ac5ad562bb035bf7ac9650da94f290655c194f4a6de3e766f43febd432c5c
