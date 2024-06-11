@@ -2,8 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
+import { prefundedAccounts } from "tevm";
 import { useAccount } from "wagmi";
 import { useWatchBalance } from "~~/hooks/scaffold-eth";
+import { memoryClient } from "~~/services/web3/wagmiConfig";
+import { MessageResult } from "~~/workers/types";
 
 const Home: NextPage = () => {
   const [code, setCode] = useState(
@@ -28,8 +31,25 @@ contract AddNumbers {
 
   useEffect(() => {
     workerRef.current = new Worker(new URL("../workers/SolcWorker.ts", import.meta.url));
-    workerRef.current.onmessage = event => {
-      console.log("Message from worker", event.data);
+    workerRef.current.onmessage = async ({ data }: MessageEvent<MessageResult>) => {
+      try {
+        // TODO: Remove hardcoding of contract name
+        const byteCode = data.result.data?.contracts["contract.sol"]?.AddNumbers?.evm?.bytecode.object;
+        const contractAbi = data.result.data?.contracts["contract.sol"]?.AddNumbers?.abi;
+        if (!byteCode || !contractAbi) throw new Error("Bytecode or ABI not found");
+
+        const deployResult = await memoryClient.tevmDeploy({
+          from: prefundedAccounts[0],
+          abi: contractAbi,
+          bytecode: `0x${byteCode}`,
+        });
+
+        await memoryClient.tevmMine();
+
+        console.log("Deployed", deployResult);
+      } catch (e) {
+        console.error("Error", e);
+      }
     };
     workerRef.current.onerror = error => {
       console.error("Worker error:", error);
