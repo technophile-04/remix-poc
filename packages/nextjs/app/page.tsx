@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { NextPage } from "next";
 import { prefundedAccounts } from "tevm";
 import { Abi } from "viem";
-import { useAccount } from "wagmi";
 import { Address } from "~~/components/scaffold-eth";
-import { useWatchBalance } from "~~/hooks/scaffold-eth";
 import { useDeployedContractState } from "~~/services/store/store";
 import { memoryClient } from "~~/services/web3/wagmiConfig";
 import { getParsedError, notification } from "~~/utils/scaffold-eth";
@@ -31,12 +30,9 @@ contract AddNumbers {
     byteCode: undefined,
   });
 
+  const router = useRouter();
+
   const workerRef = useRef<Worker>();
-
-  const { address: connectedAddress } = useAccount();
-
-  const { data: balance } = useWatchBalance({ address: connectedAddress });
-  console.log("balance", balance);
 
   const { setDeployedContractAddress, setDeployedContractAbi, deployedContractAddress } = useDeployedContractState(
     state => state,
@@ -94,6 +90,7 @@ contract AddNumbers {
       setDeployedContractAddress(deployResult.createdAddress);
 
       notification.success("Contract deployed successfully");
+      router.push("/debug");
     } catch (e) {
       console.error("Error", e);
       const error = getParsedError(e);
