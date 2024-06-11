@@ -2,26 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
-import { v4 as uuidv4 } from "uuid";
 import { useAccount } from "wagmi";
 import { useWatchBalance } from "~~/hooks/scaffold-eth";
-
-const solcWorkerCompile = (worker: Worker, code: string) => {
-  const id = uuidv4();
-  return new Promise((resolve, reject) => {
-    worker.onmessage = e => {
-      if (e.data.id !== id) return;
-      const { success, result, error } = e.data;
-
-      if (success) {
-        resolve(result);
-      } else {
-        reject(error);
-      }
-    };
-    worker.postMessage({ code, id });
-  });
-};
 
 const Home: NextPage = () => {
   const [code, setCode] = useState(
@@ -47,7 +29,7 @@ contract AddNumbers {
   useEffect(() => {
     workerRef.current = new Worker(new URL("../workers/SolcWorker.ts", import.meta.url));
     workerRef.current.onmessage = event => {
-      console.log("Worker message:", event.data);
+      console.log("Message from worker", event.data);
     };
     workerRef.current.onerror = error => {
       console.error("Worker error:", error);
@@ -58,10 +40,10 @@ contract AddNumbers {
       }
     };
   }, []);
+
   const startWorker = async () => {
     if (workerRef.current) {
-      const data = await solcWorkerCompile(workerRef.current, code);
-      console.log("data", data);
+      workerRef.current?.postMessage({ code });
     }
   };
   return (

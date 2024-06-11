@@ -2432,7 +2432,6 @@ __metadata:
     typescript: ^5.1.6
     use-debounce: ^8.0.4
     usehooks-ts: ^2.13.0
-    uuid: ^9.0.1
     vercel: ^32.4.1
     viem: 2.10.9
     wagmi: 2.9.2

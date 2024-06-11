@@ -6,46 +6,44 @@ importScripts("https://binaries.soliditylang.org/bin/soljson-v0.8.19+commit.7dd6
 
 const params = z.object({
   code: z.string(),
-  id: z.string(),
 });
 
 // Solc is expensive to import expensive to compile and expensive to run
 // Run it in a web worker so it always runs on a seperate thread
 onmessage = async e => {
-  const { code, id } = params.parse(e.data);
-  const compiler = wrapper(self);
-  console.log(`Solc version: ${compiler.version()}`);
-
-  const sourceCode = {
-    language: "Solidity",
-    settings: {
-      outputSelection: {
-        "*": {
-          "*": ["*"],
-        },
-      },
-    },
-    sources: {
-      "contract.sol": {
-        content: code,
-      },
-    },
-  };
-
-  const data = JSON.parse(compiler.compile(JSON.stringify(sourceCode)));
+  const { code } = params.parse(e.data);
 
   try {
+    const compiler = wrapper(self);
+
+    const sourceCode = {
+      language: "Solidity",
+      settings: {
+        outputSelection: {
+          "*": {
+            "*": ["*"],
+          },
+        },
+      },
+      sources: {
+        "contract.sol": {
+          content: code,
+        },
+      },
+    };
+
+    const data = JSON.parse(compiler.compile(JSON.stringify(sourceCode)));
+
     const result = {
       data,
-      id,
     };
 
     postMessage({ success: true, result });
   } catch (error) {
-    console.error("Failed to compile code", id, error);
+    console.error("Failed to compile code", error);
     postMessage({
       success: false,
-      result: { id },
+      result: { data: undefined },
       error: error instanceof Error ? error.message : error,
     });
   }
