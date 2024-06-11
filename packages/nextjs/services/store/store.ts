@@ -1,3 +1,5 @@
+import { Abi } from "abitype";
+import { Address } from "viem";
 import { create } from "zustand";
 import scaffoldConfig from "~~/scaffold.config";
 import { ChainWithAttributes } from "~~/utils/scaffold-eth";
@@ -18,9 +20,24 @@ type GlobalState = {
   setTargetNetwork: (newTargetNetwork: ChainWithAttributes) => void;
 };
 
+type DeployedContractState = {
+  deployedContractAbi: Abi;
+  setDeployedContractAbi: (newAbi: Abi) => void;
+  deployedContractAddress: Address;
+  setDeployedContractAddress: (newAbiContractAddress: Address) => void;
+};
+
 export const useGlobalState = create<GlobalState>(set => ({
   nativeCurrencyPrice: 0,
   setNativeCurrencyPrice: (newValue: number): void => set(() => ({ nativeCurrencyPrice: newValue })),
   targetNetwork: scaffoldConfig.targetNetworks[0],
   setTargetNetwork: (newTargetNetwork: ChainWithAttributes) => set(() => ({ targetNetwork: newTargetNetwork })),
+}));
+
+export const useDeployedContractState = create<DeployedContractState>(set => ({
+  deployedContractAddress: "",
+  setDeployedContractAddress: (newDeployedContractAddress: Address) =>
+    set(() => ({ deployedContractAddress: newDeployedContractAddress })),
+  deployedContractAbi: [],
+  setDeployedContractAbi: (newAbi: Abi) => set(() => ({ deployedContractAbi: newAbi })),
 }));

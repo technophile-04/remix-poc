@@ -3,9 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import { prefundedAccounts } from "tevm";
+import { Abi } from "viem";
 import { useAccount } from "wagmi";
+import { Address } from "~~/components/scaffold-eth";
 import { useWatchBalance } from "~~/hooks/scaffold-eth";
+import { useDeployedContractState } from "~~/services/store/store";
 import { memoryClient } from "~~/services/web3/wagmiConfig";
+import { getParsedError, notification } from "~~/utils/scaffold-eth";
 import { MessageResult } from "~~/workers/types";
 
 const Home: NextPage = () => {
@@ -22,12 +26,21 @@ contract AddNumbers {
 `,
   );
 
+  const [compliedContract, setCompliedContract] = useState<{ abi?: Abi; byteCode?: `0x${string}` }>({
+    abi: undefined,
+    byteCode: undefined,
+  });
+
   const workerRef = useRef<Worker>();
 
   const { address: connectedAddress } = useAccount();
 
   const { data: balance } = useWatchBalance({ address: connectedAddress });
   console.log("balance", balance);
+
+  const { setDeployedContractAddress, setDeployedContractAbi, deployedContractAddress } = useDeployedContractState(
+    state => state,
+  );
 
   useEffect(() => {
     workerRef.current = new Worker(new URL("../workers/SolcWorker.ts", import.meta.url));
@@ -38,17 +51,12 @@ contract AddNumbers {
         const contractAbi = data.result.data?.contracts["contract.sol"]?.AddNumbers?.abi;
         if (!byteCode || !contractAbi) throw new Error("Bytecode or ABI not found");
 
-        const deployResult = await memoryClient.tevmDeploy({
-          from: prefundedAccounts[0],
-          abi: contractAbi,
-          bytecode: `0x${byteCode}`,
-        });
-
-        await memoryClient.tevmMine();
-
-        console.log("Deployed", deployResult);
+        setCompliedContract({ abi: contractAbi, byteCode: `0x${byteCode}` });
+        notification.success("Contract compiled successfully");
       } catch (e) {
         console.error("Error", e);
+        const error = getParsedError(e);
+        notification.error(error);
       }
     };
     workerRef.current.onerror = error => {
@@ -59,13 +67,40 @@ contract AddNumbers {
         workerRef.current.terminate();
       }
     };
-  }, []);
+  }, [setDeployedContractAddress, setDeployedContractAbi]);
 
-  const startWorker = async () => {
+  const complieCode = async () => {
     if (workerRef.current) {
       workerRef.current?.postMessage({ code });
     }
   };
+
+  const deployContract = async () => {
+    try {
+      if (!compliedContract.abi || !compliedContract.byteCode)
+        throw new Error("No contract to deploy, please complie the contract");
+
+      const deployResult = await memoryClient.tevmDeploy({
+        from: prefundedAccounts[0],
+        abi: compliedContract.abi,
+        bytecode: compliedContract.byteCode,
+      });
+
+      await memoryClient.tevmMine();
+
+      if (!deployResult.createdAddress) throw new Error("Contract address not found");
+
+      setDeployedContractAbi(compliedContract.abi);
+      setDeployedContractAddress(deployResult.createdAddress);
+
+      notification.success("Contract deployed successfully");
+    } catch (e) {
+      console.error("Error", e);
+      const error = getParsedError(e);
+      notification.error(error);
+    }
+  };
+
   return (
     <>
       <div className="flex items-center flex-col flex-grow pt-10">
@@ -80,11 +115,18 @@ contract AddNumbers {
           />
         </div>
         <div className="flex items-center justify-center space-x-4">
-          <button className="btn btn-primary mt-4" onClick={startWorker}>
+          <button className="btn btn-primary mt-4" onClick={complieCode}>
             Compile
           </button>
-          <button className="btn btn-primary mt-4">Deploy</button>
+          <button className="btn btn-primary mt-4" onClick={deployContract}>
+            Deploy
+          </button>
         </div>
+        {deployedContractAddress && (
+          <div className="mt-4">
+            <Address address={deployedContractAddress} />
+          </div>
+        )}
       </div>
     </>
   );
