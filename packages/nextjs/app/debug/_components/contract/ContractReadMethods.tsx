@@ -1,8 +1,15 @@
-import { Abi, AbiFunction } from "abitype";
+import { Abi, AbiFunction, Address } from "abitype";
 import { ReadOnlyFunctionForm } from "~~/app/debug/_components/contract";
-import { Contract, ContractName, GenericContract, InheritedFunctions } from "~~/utils/scaffold-eth/contract";
+import { GenericContract, InheritedFunctions } from "~~/utils/scaffold-eth/contract";
 
-export const ContractReadMethods = ({ deployedContractData }: { deployedContractData: Contract<ContractName> }) => {
+export const ContractReadMethods = ({
+  deployedContractData,
+}: {
+  deployedContractData: {
+    address: Address;
+    abi: Abi;
+  };
+}) => {
   if (!deployedContractData) {
     return null;
   }

@@ -1,13 +1,17 @@
 import { DisplayVariable } from "./DisplayVariable";
 import { Abi, AbiFunction } from "abitype";
-import { Contract, ContractName, GenericContract, InheritedFunctions } from "~~/utils/scaffold-eth/contract";
+import { Address } from "viem";
+import { GenericContract, InheritedFunctions } from "~~/utils/scaffold-eth/contract";
 
 export const ContractVariables = ({
   refreshDisplayVariables,
   deployedContractData,
 }: {
   refreshDisplayVariables: boolean;
-  deployedContractData: Contract<ContractName>;
+  deployedContractData: {
+    address: Address;
+    abi: Abi;
+  };
 }) => {
   if (!deployedContractData) {
     return null;
