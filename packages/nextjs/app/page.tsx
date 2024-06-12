@@ -17,12 +17,16 @@ const Home: NextPage = () => {
 pragma solidity >0.8.0;
 
 contract AddNumbers {
-  // Function to add two numbers
-  function add(uint256 a, uint256 b) public pure returns (uint256) {
-    return a + b;
-  }
-}
-`,
+	uint256 public result;
+
+	function add(uint256 a, uint256 b) public pure returns (uint256) {
+		return a + b;
+	}
+
+	function addAndStore(uint256 a, uint256 b) public {
+		result = add(a, b);
+	}
+}`,
   );
 
   const [compliedContract, setCompliedContract] = useState<{ abi?: Abi; byteCode?: `0x${string}` }>({
