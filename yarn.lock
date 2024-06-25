@@ -2409,7 +2409,6 @@ __metadata:
     abitype: ^1.0.2
     autoprefixer: ^10.4.12
     blo: ^1.0.1
-    burner-connector: ^0.0.8
     daisyui: 4.5.0
     eslint: ^8.15.0
     eslint-config-next: ^14.0.4
@@ -5686,17 +5685,6 @@ __metadata:
     node-gyp: latest
     node-gyp-build: ^4.3.0
   checksum: 7e9a46f1867dca72fda350966eb468eca77f4d623407b0650913fadf73d5750d883147d6e5e21c56f9d3b0bdc35d5474e80a600b9f31ec781315b4d2469ef087
-  languageName: node
-  linkType: hard
-
-"burner-connector@npm:^0.0.8":
-  version: 0.0.8
-  resolution: "burner-connector@npm:0.0.8"
-  dependencies:
-    "@rainbow-me/rainbowkit": 2.1.0
-    "@wagmi/core": 2.10.2
-    viem: 2.10.9
-  checksum: 3eed72fada75a302ca6966837e005692c708ad754772973c0c80def8f24b467dcd7acd5af0f66d370e3c86ada14791ab2a12b02f37e45c4acc6a64781309f050
   languageName: node
   linkType: hard
 

@@ -1,3 +1,4 @@
+import { rainbowkitBurnerWallet } from "./burner/burnerWallet";
 import { connectorsForWallets } from "@rainbow-me/rainbowkit";
 import {
   coinbaseWallet,
@@ -7,7 +8,6 @@ import {
   safeWallet,
   walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets";
-import { rainbowkitBurnerWallet } from "burner-connector";
 import * as chains from "viem/chains";
 import scaffoldConfig from "~~/scaffold.config";
 
