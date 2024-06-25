@@ -14,7 +14,7 @@ export const enabledChains = targetNetworks.find((network: Chain) => network.id 
   ? targetNetworks
   : ([...targetNetworks, mainnet] as const);
 
-const customCommon = createCommon({
+export const customCommon = createCommon({
   ...tevmDefault,
   id: hardhat.id,
   loggingLevel: "warn",

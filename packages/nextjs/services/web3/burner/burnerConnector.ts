@@ -1,16 +1,9 @@
+import { customCommon, memoryClient } from "../wagmiConfig";
 import { burnerWalletId, burnerWalletName, loadBurnerPK } from "./utils";
 import { createConnector, normalizeChainId } from "@wagmi/core";
+import { tevmTransport } from "tevm";
 import type { EIP1193RequestFn, Hex, SendTransactionParameters, Transport, WalletRpcSchema } from "viem";
-import {
-  BaseError,
-  RpcRequestError,
-  SwitchChainError,
-  createWalletClient,
-  custom,
-  fromHex,
-  getAddress,
-  http,
-} from "viem";
+import { BaseError, RpcRequestError, SwitchChainError, createWalletClient, custom, fromHex, getAddress } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { getHttpRpcClient, hexToBigInt, hexToNumber, numberToHex } from "viem/utils";
 
@@ -38,6 +31,7 @@ export const burner = () => {
     name: burnerWalletName,
     type: burnerWalletId,
     async connect({ chainId } = {}) {
+      console.log("connect to burnerwallet");
       const provider = await this.getProvider();
       const accounts = await provider.request({
         method: "eth_accounts",
@@ -55,14 +49,16 @@ export const burner = () => {
 
       const url = chain.rpcUrls.default.http[0];
       if (!url) throw new Error("No rpc url found for chain");
+
       const burnerAccount = privateKeyToAccount(loadBurnerPK());
       const client = createWalletClient({
-        chain: chain,
+        chain: customCommon,
         account: burnerAccount,
-        transport: http(),
+        transport: tevmTransport(memoryClient),
       });
 
       const request: EIP1193RequestFn = async ({ method, params }) => {
+        console.log(`burnerwallet request: ${method} ${JSON.stringify(params)}`);
         if (method === "eth_sendTransaction") {
           const actualParams = (params as SendTransactionParameters[])[0];
           const hash = await client.sendTransaction({
@@ -107,6 +103,10 @@ export const burner = () => {
           return;
         }
 
+        if (method === "eth_chainId") {
+          return customCommon.id;
+        }
+
         const body = { method, params };
         const httpClient = getHttpRpcClient(url);
         const { error, result } = await httpClient.request({ body });
@@ -122,6 +122,7 @@ export const burner = () => {
       config.emitter.emit("change", { chainId });
     },
     async getAccounts() {
+      console.log("getAccounts from burnerwallet");
       if (!connected) throw new ConnectorNotConnectedError();
       const provider = await this.getProvider();
       const accounts = await provider.request({ method: "eth_accounts" });
@@ -129,20 +130,25 @@ export const burner = () => {
       return [burnerAddress];
     },
     async onDisconnect() {
+      console.log("onDisconnect from burnerwallet");
       config.emitter.emit("disconnect");
       connected = false;
     },
     async getChainId() {
-      const provider = await this.getProvider();
+      console.log("getChainId from burnerwallet");
+      return customCommon.id;
+      /* const provider = await this.getProvider();
       const hexChainId = await provider.request({ method: "eth_chainId" });
-      return fromHex(hexChainId, "number");
+      return fromHex(hexChainId, "number"); */
     },
     async isAuthorized() {
+      console.log("isAuthorized from burnerwallet");
       if (!connected) return false;
       const accounts = await this.getAccounts();
       return !!accounts.length;
     },
     onAccountsChanged(accounts) {
+      console.log("onAccountsChanged from burnerwallet");
       if (accounts.length === 0) this.onDisconnect();
       else
         config.emitter.emit("change", {
@@ -150,6 +156,7 @@ export const burner = () => {
         });
     },
     async switchChain({ chainId }) {
+      console.log("switchChain from burnerwallet");
       const provider = await this.getProvider();
       const chain = config.chains.find(x => x.id === chainId);
       if (!chain) throw new SwitchChainError(new ChainNotConfiguredError());
