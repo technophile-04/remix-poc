@@ -5,7 +5,7 @@ import { tevmTransport } from "tevm";
 import type { EIP1193RequestFn, Hex, SendTransactionParameters, Transport, WalletRpcSchema } from "viem";
 import { BaseError, RpcRequestError, SwitchChainError, createWalletClient, custom, fromHex, getAddress } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-import { getHttpRpcClient, hexToBigInt, hexToNumber, numberToHex } from "viem/utils";
+import { getHttpRpcClient, hexToBigInt, numberToHex } from "viem/utils";
 
 export class ConnectorNotConnectedError extends BaseError {
   override name = "ConnectorNotConnectedError";
@@ -59,26 +59,21 @@ export const burner = () => {
 
       const request: EIP1193RequestFn = async ({ method, params }) => {
         console.log(`burnerwallet request: ${method} ${JSON.stringify(params)}`);
+
         if (method === "eth_sendTransaction") {
           const actualParams = (params as SendTransactionParameters[])[0];
-          const hash = await client.sendTransaction({
-            account: burnerAccount,
+          const hash = await memoryClient.tevmCall({
+            from: burnerAccount.address,
             data: actualParams?.data,
-            to: actualParams?.to,
+            to: actualParams?.to as string | undefined,
             value: actualParams?.value ? hexToBigInt(actualParams.value as unknown as Hex) : undefined,
             gas: actualParams?.gas ? hexToBigInt(actualParams.gas as unknown as Hex) : undefined,
-            nonce: actualParams?.nonce ? hexToNumber(actualParams.nonce as unknown as Hex) : undefined,
-            maxPriorityFeePerGas: actualParams?.maxPriorityFeePerGas
-              ? hexToBigInt(actualParams.maxPriorityFeePerGas as unknown as Hex)
-              : undefined,
-            maxFeePerGas: actualParams?.maxFeePerGas
-              ? hexToBigInt(actualParams.maxFeePerGas as unknown as Hex)
-              : undefined,
-            gasPrice: (actualParams?.gasPrice
-              ? hexToBigInt(actualParams.gasPrice as unknown as Hex)
-              : undefined) as undefined,
           });
-          return hash;
+          console.log(`burnerwallet response:`, hash);
+          console.log("The value of transaction hash is: ", hash.txHash);
+          await memoryClient.tevmMine();
+          console.log(`Minning complete`);
+          return hash.txHash;
         }
 
         if (method === "personal_sign") {
