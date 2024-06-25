@@ -23,7 +23,7 @@ contract AddNumbers {
 		return a + b;
 	}
 
-	function addAndStore(uint256 a, uint256 b) public {
+	function addAndStore(uint256 a, uint256 b) public payable {
 		result = add(a, b);
 	}
   receive() external payable {}
