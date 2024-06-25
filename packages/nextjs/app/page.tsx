@@ -26,6 +26,7 @@ contract AddNumbers {
 	function addAndStore(uint256 a, uint256 b) public {
 		result = add(a, b);
 	}
+  receive() external payable {}
 }`,
   );
 

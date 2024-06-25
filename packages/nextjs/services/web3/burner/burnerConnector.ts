@@ -67,7 +67,7 @@ export const burner = () => {
             data: actualParams?.data,
             to: actualParams?.to as string | undefined,
             value: actualParams?.value ? hexToBigInt(actualParams.value as unknown as Hex) : undefined,
-            gas: actualParams?.gas ? hexToBigInt(actualParams.gas as unknown as Hex) : undefined,
+            createTransaction: "on-success",
           });
           console.log(`burnerwallet response:`, hash);
           console.log("The value of transaction hash is: ", hash.txHash);
